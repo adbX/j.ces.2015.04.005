@@ -1,0 +1,3 @@
+[submodule "OpenQBMM"]
+	path = OpenQBMM
+	url = git@github.com:ReproducibilityInPublishing/OpenQBMM
