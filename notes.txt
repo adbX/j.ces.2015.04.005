@@ -225,6 +225,25 @@ T3 4*(3*0.7)
 T9 4*0
 [103.4(23.9%)]@16:27:00
 
+10:44:00 - For Figures 2, 4, etc.. There is a 'rigorous' or 'analytical' solution which is plotted along with the numerical solutions. The article refers to another article which calculates these solutions 'Vanni(2000)'. Citation here:
+
+@article{VANNI2000143,
+	title = "Approximate Population Balance Equations for Aggregation–Breakage Processes",
+	journal = "Journal of Colloid and Interface Science",
+	volume = "221",
+	number = "2",
+	pages = "143 - 160",
+	year = "2000",
+	issn = "0021-9797",
+	doi = "https://doi.org/10.1006/jcis.1999.6571",
+	url = "http://www.sciencedirect.com/science/article/pii/S0021979799965712",
+	author = "Marco Vanni",
+	keywords = "aggregation, breakage, population balance, particulate systems"
+}
+
+Additionally, the article says they essentially digitized the plots from that article. They also compared against similar answers using GammaEQMOM from another article Yuan 2012. I noticed a GammaEQMOM system in Open QBMM so I think I'm going to see whether that produces the appropriate result.
+
+
 
 --- Notes ---
 
