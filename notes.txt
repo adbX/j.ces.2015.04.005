@@ -1,0 +1,208 @@
+--- Assets ---
+
+Figures [205] 1a,b,c,d(6 curves) 2a,b,c,d(3 curves) 3a,c,d(3 curves),b(2curves) 4a,b,c,d(3 curves) 5a,c,d(3 curves),b(2curves) 6a,b,c,d(3 curves) 7a,c,d(3 curves),b(2 curves) 8a,b,c,d(3 curves) 9a,c,d(3 curves),b(2 curves) 10a,b,c,d(3 curves) 11a,c,d(3 curves),b(2 curves) 12,a(3 curves),b(4 curves),c(5 curves),d(6 curves),e(7 curves),f(8 curves) 13,a(3 curves),b(4 curves),c(5 curves),d(6 curves),e(7 curves),f(8 curves)
+Tables [228] 2(4 cases*(21 numbers(3 different Ns))) 3(4 cases*(3 ns)) 9?(4*3 values) 
+Numbers [0]
+Total [433]
+
+--- Work Log ---
+
+00:00:00 - We begin with OpenQBMM which appears to have implemented some examples which reference this paper.
+
+F1 a(0+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
+F2 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F3 a(0+0+0) b(0+0) c(0+0+0) d(0+0+0)
+F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F5 a(0+0+0) b(0+0) c(0+0+0) d(0+0+0)
+F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F7 a(0+0+0) b(0+0) c(0+0+0) d(0+0+0)
+F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F9 a(0+0+0) b(0+0) c(0+0+0) d(0+0+0)
+F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F11 a(0+0+0) b(0+0) c(0+0+0) d(0+0+0)
+F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+T2 1*0+2*0+3*0+4*0
+T3 4*0
+T9 4*0
+[0(0%)]@00:00:00
+
+00:06:24 - To start, it seems that in each of the validation directories pdeFoam/{madadiPassalacquaGamma,madadiPassalacquaLognormal,madadiPassalacquaQMOM} we have a validation directory where d_43 is compared to input validation data.
+00:20:33 - case 5 looks similar to what's in F3d. case 6 looks similar to F5d. case 7 looks similar to F7d. case 8 looks similar to F9d. case 9 looks similar to F11d, but it crashed half way through. I'm going to put down 10% replications for the LnQMOM trace of each of these plots and an 20% replication for each of the rigorous solutions for these cases.
+
+F1 a(0+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
+F2 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F3 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F5 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F7 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F9 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F11 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+T2 1*0+2*0+3*0+4*0
+T3 4*0
+T9 4*0
+[1.5(0.3%)]@00:20:33
+
+00:45:00 - It seems that various kernel information is stored in the file constant/populationBalanceProperties. There seem to be some default values which are overridden in several cases. for example, the powerlaw breakup kernel has a default power of 3 which is overridden to 6 in case 8.
+00:52:00 - I've found where the initial values for the moments are set. They are set in 0/moment.*. Possible mistake either in Table 4 or the code. 
+00:54:00 - Also important is constant/quadratureProperties.populationBalance which sets the moment inversion stategy and informs it of how many moments there should be.
+02:06:00 - Apparently Figure 1 is showing how an approximation in their method affects the accuracy of the result. This refers to a somewhat complex method of determining Moment values. I will first try to build the analytic lines in each plot using gnuplot since other examples from existing cases seem to use gnuplot.
+03:01:45 - Got the analytic plot from Figure 1a plotted. (Ran into another integer division issue. I need to stop assuming that integer division works like rational division.. I got a bit too excited about sagemath allowing rational division)
+
+F1 a(1+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
+F2 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F3 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F5 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F7 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F9 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F11 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+T2 1*0+2*0+3*0+4*0
+T3 4*0
+T9 4*0
+[2.5(0.6%)]@00:20:33
+
+05:02:00 - I'm still trying to understand how the moment inversion algorithm works. I've looked at the following papers which were cited by this paper or previous papers:
+
+This is supposed to be the genesis of the moment inversion method
+@article{wheeler1974,
+	author = "Wheeler, John C.",
+	doi = "10.1216/RMJ-1974-4-2-287",
+	fjournal = "Rocky Mountain Journal of Mathematics",
+	journal = "Rocky Mountain J. Math.",
+	month = "06",
+	number = "2",
+	pages = "287--296",
+	publisher = "Rocky Mountain Mathematics Consortium",
+	title = "Modified moments and Gaussian quadratures",
+	url = "https://doi.org/10.1216/RMJ-1974-4-2-287",
+	volume = "4",
+	year = "1974"
+}
+
+This is an earlier paper which also cites the wheeler paper
+@article{YUAN20121,
+	title = "An extended quadrature method of moments for population balance equations",
+	journal = "Journal of Aerosol Science",
+	volume = "51",
+	pages = "1 - 23",
+	year = "2012",
+	issn = "0021-8502",
+	doi = "https://doi.org/10.1016/j.jaerosci.2012.04.003",
+	url = "http://www.sciencedirect.com/science/article/pii/S0021850212000699",
+	author = "C. Yuan and F. Laurent and R.O. Fox",
+	keywords = "Population balance equation, Extended quadrature method of moments (EQMOM), Aggregation, Breakage, Condensation, Evaporation"
+}
+
+This article is even earlier and actually includes code outlining the moment inversion algorithm.
+@article{YUAN20118216,
+	title = "Conditional quadrature method of moments for kinetic equations",
+	journal = "Journal of Computational Physics",
+	volume = "230",
+	number = "22",
+	pages = "8216 - 8246",
+	year = "2011",
+	issn = "0021-9991",
+	doi = "https://doi.org/10.1016/j.jcp.2011.07.020",
+	url = "http://www.sciencedirect.com/science/article/pii/S0021999111004396",
+	author = "C. Yuan and R.O. Fox",
+	keywords = "Velocity distribution function, Kinetic equation, Boltzmann equation, Quadrature-based moment methods (QBMM), Dilute gas-particle flows, Riemann problem, Truncated moment problem"
+}
+
+This article seems to give a more explicit treatment of moment inversion.
+@article{PhysRevB.8.1764,
+  title = {Modified-Moments Method: Applications to Harmonic Solids},
+  author = {Blumstein, Carl and Wheeler, John C.},
+  journal = {Phys. Rev. B},
+  volume = {8},
+  issue = {4},
+  pages = {1764--1776},
+  numpages = {0},
+  year = {1973},
+  month = {Aug},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevB.8.1764},
+  url = {https://link.aps.org/doi/10.1103/PhysRevB.8.1764}
+}
+
+06:14:35 - Accidentally reset stopwatch. I'm actually going to open a github issue with them to find out the right way to get the inverted moments. There are classes in OpenQBMM which do this, but it doesn't seem like pbeFoam calls them and stores their results normally.
+
+RESET TIMER
+
+00:08:44 - The authors of this article responded right away to the github issue. They have provided a couple suggestions to get the weights and abscissae from pbeFoam. I'm working on getting these suggestions to work. I believe there is some OpenFOAM specific jargon and information which I need to know.
+
+00:55:00 - I've run into a building problem. Apparently the two phase mixing portion of OpenQBMM does not yet work with OpenFOAM-6 because OpenFOAM is changing the way variables are made visible. They suggest using OpenFOAM-5 in the mean time. I am going to build OpenFoam-5.
+
+01:15:00 - 'HUGE' doesn't seem to be defined in OpenFOAM-5 either. I'm currently looking hard for where it's defined.
+
+01:45:00 - For now I've skipped this problem by changing HUGE to GREAT which I know is defined by OpenFOAM. This allows everything to finish building. I suspect that actually I was running into this problem before but because of the way that wmake fails I didn't notice it. It certainly took longer to build this time than I remember. I must have just gotten lucky with pbeFoam building before the failing component.
+
+02:30:00 - After posting an issue to github, both lead authors on this paper, replied to me in 30 minutes. They are helping me figure out how to get the information I need from this solver. I now know how to print the weights and abscissa for each node as well as the secondary weights for each node. I was trying to get sigma as well, but had to ask about that as well. 12 hours later, they have produced a patch to make this possible. One thing which isn't obvious is which branch to use. It seems like I should have been using the 'development' branch. But I didn't see any instructions telling me this.
+
+02:42:00 - I am now getting, abscissa, weights, sigmas for all nodes from the probe postprocessing function. I now want to figure out how to get this information at time step 0 as well.
+
+02:48:00 - Asked about how to produce information at time step 0 as well. They responded that using the Test-UnivariateMomentInversion.C is good for that. I'm not sure I like that. It requires compilation for each individual case.
+
+03:10:37 - Got a response and was recommended to add a readFields function Object and use postProcess -time 0.
+
+readFields { functionObjectLibs ( "libfieldFunctionObjects.so" ); type readFields; fields ( moment.0.populationBalance moment.1.populationBalance moment.2.populationBalance moment.3.populationBalance ); }
+
+However, I now get another error since apparently it can't find the polyMesh directory.
+
+03:44:00 - Suggestion from the author was to copy the polyMesh directory anyway. However this still doesn't fix the problem because postProcess -time '0' only writes the moment variables. I'm still working with the authors to fix this.
+
+05:00:00 - The authors inform me that this article was completed using Matlab code and this code was written in a more general way. Additionally, the code is not meant to produce results on time step 0 so I will have to resort to the compilation method.
+
+07:43:00 - I've now adjusted the Test-ExtendedMomentInversion program so that it takes command line arguments. I've also created the Tables2and3.py script which runs this program and produces the errors listed in Table2. I'm getting close values for most entries in the table, however none match exactly, a few are 0. and some cases are quite different (E~10 in some cases). I'm marking down all values within a few of the listed value as 0.98, within 1 order of magnitude as 0.8 and others as 0.2.
+
+F1 a(1+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
+F2 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F3 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F5 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F7 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F9 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F11 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+T2 1*(20*0.98+1*0.8)+2*(13*0.98+1*0.8+7*0.2)+3*(17*0.98+4*0.8)+4*(13*0.98+8*0.2)
+T3 4*0
+T9 4*0
+[72.0(16.6%)]@13:47:00
+
+07:54:00 - Table 3's caption is confusingly worded.
+
+08:51:50 - I've now produced a version of Table3. Generally, I'm getting 1-2 orders of magnitude smaller errors than what they're reporting. The general statement of the graph is still there though, Namely cases 1,2 have very small errors, while cases 3 and for have much larger errors. I'll say this is 70% reproduced.
+
+F1 a(1+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
+F2 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F3 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F5 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F7 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F9 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F11 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+T2 1*(20*0.98+1*0.8)+2*(13*0.98+1*0.8+7*0.2)+3*(17*0.98+4*0.8)+4*(13*0.98+8*0.2)
+T3 4*(3*0.7)
+T9 4*0
+[80.4(18.6%)]@15:05:00
+
+--- Notes ---
