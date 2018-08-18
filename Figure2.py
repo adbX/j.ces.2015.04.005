@@ -1,6 +1,7 @@
 import csv
 import matplotlib.pyplot as plt
 import numpy as np
+import helpers
 
 # Read analytic data from file.
 x_analytic = []
@@ -27,12 +28,20 @@ plt.figure(1, figsize=(12,8), dpi=80)
 
 node_num_list = [1, 2, 3, 4]
 
+x = np.linspace(1, 10, 100)
+
 for node_num in node_num_list:
     plt.subplot(220+node_num)
 
     plt.plot([], color="#0A246A", linestyle="-", label="Analytical solution")
 
     plt.plot(x_analytic, y_analytic, color="#0A246A", linestyle="-")
+
+    abscissa_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/abscissa.node0.populationBalance" % (node_num))
+    weight_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/weight.node0.populationBalance" % (node_num))
+    sigma_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/sigma.node0.populationBalance" % (node_num))
+
+    plt.plot
 
     plt.legend()
     plt.ylabel(r"$n(\xi)$")
