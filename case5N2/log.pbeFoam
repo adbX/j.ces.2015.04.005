@@ -1,0 +1,244 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 6-f845197ccf3b
+Exec   : pbeFoam
+Date   : Aug 17 2018
+Time   : 19:22:35
+Host   : "schumann"
+PID    : 5407
+I/O    : uncollated
+Case   : /data0/matthew/Software/NCSA/Horizontal/replications/work-dir/j.ces.2015.04.005/code/case5
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Constructing single cell mesh
+
+
+Reading thermophysical properties
+
+Selecting thermodynamics package 
+{
+    type            hePsiThermo;
+    mixture         pureMixture;
+    transport       sutherland;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+Reading/calculating face flux field phi
+
+Creating turbulence model.
+
+Selecting turbulence model type laminar
+Selecting laminar stress model Stokes
+Reading populationBalanceProperties
+
+Selecting populationBalanceModel univariate
+Selecting fieldMomentInversion: extendedFieldMomentInversion
+Selecting extendedMomentInversion: lognormal
+Selecting univariateMomentInversion: Gauss
+Selecting univariateMomentAdvection: noAdvection
+Selecting aggregationKernel constant
+Selecting breakupKernel constant
+Selecting daughterDistribution symmetricFragmentation
+Selecting growthModel constant
+Selecting diffusionModel none
+Selecting nucleationModel none
+
+Starting time loop
+
+Time = 10
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.183061356486
+ExecutionTime = 1.66 s  ClockTime = 2 s
+
+Time = 20
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.11104505081
+ExecutionTime = 2.15 s  ClockTime = 2 s
+
+Time = 30
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0839867541441
+ExecutionTime = 2.43 s  ClockTime = 2 s
+
+Time = 40
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0700159885468
+ExecutionTime = 2.61 s  ClockTime = 3 s
+
+Time = 50
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0616211895036
+ExecutionTime = 2.75 s  ClockTime = 3 s
+
+Time = 60
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0561121363989
+ExecutionTime = 2.84 s  ClockTime = 3 s
+
+Time = 70
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0522837239947
+ExecutionTime = 2.91 s  ClockTime = 3 s
+
+Time = 80
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0495175581731
+ExecutionTime = 2.96 s  ClockTime = 3 s
+
+Time = 90
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0474609021145
+ExecutionTime = 3.01 s  ClockTime = 3 s
+
+Time = 100
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0458994692073
+ExecutionTime = 3.04 s  ClockTime = 3 s
+
+Time = 110
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.04469531379
+ExecutionTime = 3.07 s  ClockTime = 3 s
+
+Time = 120
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0437558786766
+ExecutionTime = 3.09 s  ClockTime = 3 s
+
+Time = 130
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0430170931598
+ExecutionTime = 3.12 s  ClockTime = 3 s
+
+Time = 140
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0424317036342
+ExecutionTime = 3.13 s  ClockTime = 3 s
+
+Time = 150
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0419650824167
+ExecutionTime = 3.14 s  ClockTime = 3 s
+
+Time = 160
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0415913595722
+ExecutionTime = 3.15 s  ClockTime = 3 s
+
+Time = 170
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0412908983618
+ExecutionTime = 3.16 s  ClockTime = 3 s
+
+Time = 180
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0410485968482
+ExecutionTime = 3.17 s  ClockTime = 3 s
+
+Time = 190
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0408527145323
+ExecutionTime = 3.18 s  ClockTime = 3 s
+
+Time = 200
+
+Solving source terms in realizable ODE solver.
+diagonal:  Solving for moment.0.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.1.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+diagonal:  Solving for moment.2.populationBalance, Initial residual = 0, Final residual = 0, No Iterations 0
+moment.0 = 0.0406940425442
+ExecutionTime = 3.19 s  ClockTime = 3 s
+
+Number of steps = 20
+End
+
