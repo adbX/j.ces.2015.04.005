@@ -4,37 +4,7 @@ import math
 import re
 import matplotlib.pyplot as plt
 import numpy as np
-
-def lognormal_moment(k, mu, sigma):
-    return math.exp((k*mu)+(k*k*sigma*sigma/2))
-
-def lognormal_analytic_moment(k, mu1, sigma1, mu2, sigma2):
-    return (lognormal_moment(k, mu1, sigma1)+lognormal_moment(k, mu2, sigma2))/2.
-
-def kern(x, mu, sigma):
-    return math.exp(-(math.log(x)-mu)**2/(2*sigma**2))/(x*sigma*math.sqrt(2*math.pi))
-
-def f(x, mu1, sigma1, mu2, sigma2):
-    return (kern(x, mu1, sigma1)+kern(x, mu2, sigma2))/2.
-
-def f_num(x, node_definitions):
-    value = 0
-    for i in range(0,node_definitions['n']):
-        value += node_definitions[i]['w']*kern(x, node_definitions[i]['ab'], node_definitions['sig'])
-    return value
-
-def f_num_single(x, node_definitions, i):
-    return node_definitions[i]['w']*kern(x, node_definitions[i]['ab'], node_definitions['sig'])
-
-def integrate(f_func, p_func, xmin, xmax, N):
-    dx = (xmax-xmin)/N
-    summation = 0.
-    for i in range(0, N):
-        x = xmin+(dx*i)
-        summation += (f_func(x)-p_func(x))**2
-
-    summation = math.sqrt(summation*dx)
-    return summation
+import helpers
 
 ## Case variables
 
@@ -63,7 +33,7 @@ for case in case_vars:
     # Build analytic moments for the case.
     analytic_moments = []
     for k in range(0, 2*Node_nums[-1]+1):
-        analytic_moments.append(lognormal_analytic_moment(k, case_vars[case][0], case_vars[case][1], case_vars[case][2], case_vars[case][3]))
+        analytic_moments.append(helpers.lognormal_analytic_moment(k, case_vars[case][0], case_vars[case][1], case_vars[case][2], case_vars[case][3]))
     case_analytic_moments[case] = analytic_moments
 
     # Calculate numerical moments for each set of node numbers
@@ -119,7 +89,7 @@ for case in case_vars:
         for k in range(0, 2*node_num+1):
             moment = 0
             for n in range(0, node_num):
-                moment += node_definitions[n]['w']*lognormal_moment(k, node_definitions[n]['ab'], node_definitions['sig'])
+                moment += node_definitions[n]['w']*helpers.lognormal_moment(k, node_definitions[n]['ab'], node_definitions['sig'])
             num_moments.append(moment)
 
         numerical_nodes[node_num] = node_definitions
@@ -160,10 +130,10 @@ for case in case_vars:
     case_line = [case]
     for num_nodes in case_numerical_nodes[case]:
         node_definitions = case_numerical_nodes[case][2]
-        F = lambda x: f(x, case_vars[case][0], case_vars[case][1], case_vars[case][2], case_vars[case][3])
-        P = lambda x: f_num(x, node_definitions)
+        F = lambda x: helpers.f(x, case_vars[case][0], case_vars[case][1], case_vars[case][2], case_vars[case][3])
+        P = lambda x: helpers.f_num(x, node_definitions)
 
-        d = integrate(F, P, 1e-12, 500, 5000)/case_analytic_moments[case][0]
+        d = helpers.integrate(F, P, 1e-12, 500, 5000)/case_analytic_moments[case][0]
         case_line.append(d)
     case_lines.append(case_line)
 
@@ -187,17 +157,17 @@ for case in case_vars:
     plt.plot([], color="#D82900", marker="o", markerfacecolor="white", linestyle="None", label="Approximation Distribution")
 
     x = np.linspace(1e-12,case_range[case][1], Num_smooth)
-    y = np.array([f(x, case_vars[case][0], case_vars[case][1], case_vars[case][2], case_vars[case][3]) for x in x])
+    y = np.array([helpers.f(x, case_vars[case][0], case_vars[case][1], case_vars[case][2], case_vars[case][3]) for x in x])
     plt.plot(x, y, color="#0A246A", linestyle="-")
 
     for i in range(0,4):
         node_definition = case_numerical_nodes[case][4][i]
-        y = np.array([f_num_single(x, case_numerical_nodes[case][4], i) for x in x])
+        y = np.array([helpers.f_num_single(x, case_numerical_nodes[case][4], i) for x in x])
         plt.plot(x, y, color="#007F00", linestyle="--")
 
 
     x = np.linspace(1e-12, case_range[case][1], Num_point)
-    y = np.array([f_num(x, case_numerical_nodes[case][4]) for x in x])
+    y = np.array([helpers.f_num(x, case_numerical_nodes[case][4]) for x in x])
     plt.plot(x, y, color="#D82900", marker="o", markerfacecolor="white", linestyle="None")
 
     plt.legend()
