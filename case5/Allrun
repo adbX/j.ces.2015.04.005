@@ -9,6 +9,6 @@ application=`getApplication`
 
 runApplication $application
 
-( cd validation && ./createGraphs )
+#( cd validation && ./createGraphs )
 
 # ----------------------------------------------------------------- end-of-file
