@@ -243,7 +243,27 @@ T9 4*0
 
 Additionally, the article says they essentially digitized the plots from that article. They also compared against similar answers using GammaEQMOM from another article Yuan 2012. I noticed a GammaEQMOM system in Open QBMM so I think I'm going to see whether that produces the appropriate result.
 
+11:13:00 - A careful reading of the Vanni paper leaves me thinking that the authors may have made a mistake. Case 5 in the article seems like it should match with Case 1 from the Vanni paper, however, the initial moments are all wrong. n_1 = 1. while n_k = 0 for k >= 2. This is a contrast to the paper which has M_k=1 for all k. Additionally, In case 9, the aggregation kernel has a cutoff at xi = 5**1/3. No aggregation kernel in the listed Vanni cases seems to have a similar cutoff. In order to deal with this, I'm going to digitize their analytic graph and use that digitization to plot the analytic curve.
 
+11:46:00 - Extracted analytic curve for Case 5, got analytic curves for the 4 sub plots of Figure 2.
+
+F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
+F2 a(1+0+0) b(1+0+0) c(1+0+0) d(1+0+0)
+F3 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F5 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F7 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F9 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F11 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+T2 1*(20*0.98+1*0.8)+2*(13*0.98+1*0.8+7*0.2)+3*(17*0.98+4*0.8)+4*(13*0.98+8*0.2)
+T3 4*(3*0.7)
+T9 4*0
+[107.4(24.8%)]@18:00:00
 
 --- Notes ---
 
