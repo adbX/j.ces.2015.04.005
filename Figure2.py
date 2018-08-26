@@ -2,6 +2,7 @@ import csv
 import matplotlib.pyplot as plt
 import numpy as np
 import helpers
+import math
 
 # Read analytic data from file.
 x_analytic = []
@@ -34,14 +35,17 @@ for node_num in node_num_list:
     plt.subplot(220+node_num)
 
     plt.plot([], color="#0A246A", linestyle="-", label="Analytical solution")
+    plt.plot([], color="#007F00", linestyle="--", label="LnEQMOM")
 
     plt.plot(x_analytic, y_analytic, color="#0A246A", linestyle="-")
 
-    abscissa_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/abscissa.node0.populationBalance" % (node_num))
-    weight_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/weight.node0.populationBalance" % (node_num))
-    sigma_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/sigma.node0.populationBalance" % (node_num))
+    abscissa_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/abscissa.node%i.populationBalance" % (node_num, node_num-1))
+    weight_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/weight.node%i.populationBalance" % (node_num, node_num-1))
+    sigma_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/sigma.node%i.populationBalance" % (node_num, node_num-1))
 
-    plt.plot
+    y = [weight_data[200.0]*helpers.kern(x, math.log(abscissa_data[200.0]), sigma_data[200.0]) for x in x]
+
+    plt.plot(x, y, color="#007F00", linestyle="--")
 
     plt.legend()
     plt.ylabel(r"$n(\xi)$")
