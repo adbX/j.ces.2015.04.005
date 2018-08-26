@@ -38,7 +38,7 @@ def f_num(x, node_definitions):
 def f_num_single(x, node_definitions, i):
     return node_definitions[i]['w']*kern(x, node_definitions[i]['ab'], node_definitions['sig'])
 
-def integrate(f_func, p_func, xmin, xmax, N):
+def l2diff(f_func, p_func, xmin, xmax, N):
     dx = (xmax-xmin)/N
     summation = 0.
     for i in range(0, N):

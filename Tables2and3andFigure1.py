@@ -133,7 +133,7 @@ for case in case_vars:
         F = lambda x: helpers.f(x, case_vars[case][0], case_vars[case][1], case_vars[case][2], case_vars[case][3])
         P = lambda x: helpers.f_num(x, node_definitions)
 
-        d = helpers.integrate(F, P, 1e-12, 500, 5000)/case_analytic_moments[case][0]
+        d = helpers.l2diff(F, P, 1e-12, 500, 5000)/case_analytic_moments[case][0]
         case_line.append(d)
     case_lines.append(case_line)
 
