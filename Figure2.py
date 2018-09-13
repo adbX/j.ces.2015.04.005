@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import helpers
 import math
+import os
 
 # Read analytic data from file.
 x_analytic = []
@@ -31,21 +32,58 @@ node_num_list = [1, 2, 3, 4]
 
 x = np.linspace(1, 10, 100)
 
+time_end = 200.0
+
 for node_num in node_num_list:
     plt.subplot(220+node_num)
 
     plt.plot([], color="#0A246A", linestyle="-", label="Analytical solution")
     plt.plot([], color="#007F00", linestyle="--", label="LnEQMOM")
+    plt.plot([], color="red", linestyle="--", label="LnEQMOM")
 
     plt.plot(x_analytic, y_analytic, color="#0A246A", linestyle="-")
+
+    case_dir = "case5N%i" % node_num
+
+    node_definitions = {'n': node_num}
+    sigma = None
+    for i in range(0, node_num):
+        node_name = "node%i" % i
+        sigma_data = helpers.load_probe_data("%s/postProcessing/probes/0/sigma.%s.populationBalance" % (case_dir, node_name))
+        if sigma is None:
+            sigma = sigma_data[time_end]
+        else:
+            if sigma_data[time_end] != sigma:
+                print("ERROR!!! sigma is different!!")
+                sys.exit(-1)
+            else:
+                sigma = sigma_data[time_end]
+
+        abscissa_data = helpers.load_probe_data("%s/postProcessing/probes/0/abscissa.%s.populationBalance" % (case_dir, node_name))
+        weight_data = helpers.load_probe_data("%s/postProcessing/probes/0/weight.%s.populationBalance" % (case_dir, node_name))
+        node_definitions[i] = {'w': weight_data[time_end], 'ab': math.log(abscissa_data[time_end])}
+    node_definitions['sig'] = sigma
+
+    moment0_data = helpers.load_probe_data("%s/postProcessing/probes/0/moment.0.populationBalance" % case_dir)
 
     abscissa_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/abscissa.node%i.populationBalance" % (node_num, node_num-1))
     weight_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/weight.node%i.populationBalance" % (node_num, node_num-1))
     sigma_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/sigma.node%i.populationBalance" % (node_num, node_num-1))
 
-    y = [weight_data[200.0]*helpers.kern(x, math.log(abscissa_data[200.0]), sigma_data[200.0]) for x in x]
+    ## y = [weight_data[time_end]*helpers.kern(x, math.log(abscissa_data[time_end]), sigma_data[time_end]) for x in x]
+    #y = [helpers.kern(x, math.log(abscissa_data[time_end]), sigma_data[time_end]) for x in x]
+
+    #plt.plot(x, y, color="#007F00", linestyle="--")
+
+    y = [helpers.f_num(x, node_definitions)/moment0_data[200.0] for x in x]
 
     plt.plot(x, y, color="#007F00", linestyle="--")
+
+    if os.path.exists("case5N%i/postProcessing/populationBalanceProbes/200/quadrature" % (node_num)):
+        plot_data = helpers.load_probe_data("case5N%i/postProcessing/populationBalanceProbes/200/quadrature" % (node_num))
+        x = plot_data.keys()
+        y = [plot_data[x] for x in x]
+        plt.plot(x, y, color="red", linestyle="--")
 
     plt.legend()
     plt.ylabel(r"$n(\xi)$")
