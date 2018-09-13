@@ -24,11 +24,6 @@ case_numerical_moments = {}
 
 Node_nums = [2, 3, 4]
 
-sigma_re = re.compile("Sigma = (\d*\.\d*)")
-node_re = re.compile("Primary node (\d*)")
-weight_re = re.compile("Primary weight = (\d*\.\d*)")
-absicca_re = re.compile("Primary abscissa = (\d*\.\d*)")
-
 for case in case_vars:
     # Build analytic moments for the case.
     analytic_moments = []
@@ -41,48 +36,7 @@ for case in case_vars:
     numerical_moments = {}
 
     for node_num in Node_nums:
-        node_definitions = {'n': node_num}
-
-        # Build command
-        command = ["Test-ExtendedMomentInversion", str(2*node_num+1)]
-        for i in range(0, 2*node_num+1):
-            command.append(str(analytic_moments[i]))
-
-        # Run command
-        output_lines = subprocess.check_output(command)
-        found_sigma = False
-        for line in output_lines.splitlines():
-            str_line = line.decode("utf-8")
-            sigma_match = sigma_re.match(str_line)
-            if sigma_match:
-                node_definitions['sig'] = float(sigma_match.group(1))
-                found_sigma = True
-        if not found_sigma:
-            print("Couldn't get sigma!!")
-            sys.exit(-1)
-
-        # Extract weight, and abscissae information 
-        with open('secondaryQuadrature', 'r') as quad_file:
-            quadrature_lines = quad_file.readlines()
-
-        # split lines by node
-        current_node = -1
-        temp_info = {}
-        for line in quadrature_lines:
-            node_match = node_re.match(line)
-            if node_match:
-                if current_node != -1:
-                    node_definitions[current_node] = temp_info
-                current_node = int(node_match.group(1))
-                temp_info = {}
-            weight_match = weight_re.match(line)
-            if weight_match:
-                temp_info['w'] = float(weight_match.group(1))
-            absicca_match = absicca_re.match(line)
-            if absicca_match:
-                temp_info['ab'] = math.log(float(absicca_match.group(1)))
-        if current_node != -1:
-            node_definitions[current_node] = temp_info
+        node_definitions = helpers.perform_moment_inversion(node_num, analytic_moments)
 
         # Calculate numerical moments
         num_moments = []
