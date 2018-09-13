@@ -25,20 +25,20 @@ def lognormal_moment(k, mu, sigma):
 def lognormal_analytic_moment(k, mu1, sigma1, mu2, sigma2):
     return (lognormal_moment(k, mu1, sigma1)+lognormal_moment(k, mu2, sigma2))/2.
 
-def kern(x, mu, sigma):
+def lognormal_kern(x, mu, sigma):
     return math.exp(-(math.log(x)-mu)**2/(2*sigma**2))/(x*sigma*math.sqrt(2*math.pi))
 
-def f(x, mu1, sigma1, mu2, sigma2):
-    return (kern(x, mu1, sigma1)+kern(x, mu2, sigma2))/2.
+def f_lognormal(x, mu1, sigma1, mu2, sigma2):
+    return (lognormal_kern(x, mu1, sigma1)+lognormal_kern(x, mu2, sigma2))/2.
 
-def f_num(x, node_definitions):
+def f_num_lognormal(x, node_definitions):
     value = 0
     for i in range(0,node_definitions['n']):
-        value += node_definitions[i]['w']*kern(x, node_definitions[i]['ab'], node_definitions['sig'])
+        value += node_definitions[i]['w']*lognormal_kern(x, node_definitions[i]['ab'], node_definitions['sig'])
     return value
 
-def f_num_single(x, node_definitions, i):
-    return node_definitions[i]['w']*kern(x, node_definitions[i]['ab'], node_definitions['sig'])
+def f_num_single_lognormal(x, node_definitions, i):
+    return node_definitions[i]['w']*lognormal_kern(x, node_definitions[i]['ab'], node_definitions['sig'])
 
 def l2diff(f_func, p_func, xmin, xmax, N):
     dx = (xmax-xmin)/N

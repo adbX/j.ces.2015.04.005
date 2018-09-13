@@ -84,8 +84,8 @@ for case in case_vars:
     case_line = [case]
     for num_nodes in case_numerical_nodes[case]:
         node_definitions = case_numerical_nodes[case][2]
-        F = lambda x: helpers.f(x, case_vars[case][0], case_vars[case][1], case_vars[case][2], case_vars[case][3])
-        P = lambda x: helpers.f_num(x, node_definitions)
+        F = lambda x: helpers.f_lognormal(x, case_vars[case][0], case_vars[case][1], case_vars[case][2], case_vars[case][3])
+        P = lambda x: helpers.f_num_lognormal(x, node_definitions)
 
         d = helpers.l2diff(F, P, 1e-12, 500, 5000)/case_analytic_moments[case][0]
         case_line.append(d)
@@ -111,17 +111,17 @@ for case in case_vars:
     plt.plot([], color="#D82900", marker="o", markerfacecolor="white", linestyle="None", label="Approximation Distribution")
 
     x = np.linspace(1e-12,case_range[case][1], Num_smooth)
-    y = np.array([helpers.f(x, case_vars[case][0], case_vars[case][1], case_vars[case][2], case_vars[case][3]) for x in x])
+    y = np.array([helpers.f_lognormal(x, case_vars[case][0], case_vars[case][1], case_vars[case][2], case_vars[case][3]) for x in x])
     plt.plot(x, y, color="#0A246A", linestyle="-")
 
     for i in range(0,4):
         node_definition = case_numerical_nodes[case][4][i]
-        y = np.array([helpers.f_num_single(x, case_numerical_nodes[case][4], i) for x in x])
+        y = np.array([helpers.f_num_single_lognormal(x, case_numerical_nodes[case][4], i) for x in x])
         plt.plot(x, y, color="#007F00", linestyle="--")
 
 
     x = np.linspace(1e-12, case_range[case][1], Num_point)
-    y = np.array([helpers.f_num(x, case_numerical_nodes[case][4]) for x in x])
+    y = np.array([helpers.f_num_lognormal(x, case_numerical_nodes[case][4]) for x in x])
     plt.plot(x, y, color="#D82900", marker="o", markerfacecolor="white", linestyle="None")
 
     plt.legend()

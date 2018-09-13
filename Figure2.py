@@ -52,7 +52,7 @@ for node_num in Node_nums:
 
     plt.plot(x_analytic, y_analytic, color="#0A246A", linestyle="-")
 
-    y = [helpers.f_num(x, node_definitions)/analytic_moments[0] for x in x]
+    y = [helpers.f_num_lognormal(x, node_definitions)/analytic_moments[0] for x in x]
 
     plt.plot(x, y, color="#007F00", linestyle="--")
 
