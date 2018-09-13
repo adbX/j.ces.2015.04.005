@@ -265,5 +265,27 @@ T3 4*(3*0.7)
 T9 4*0
 [107.4(24.8%)]@18:00:00
 
+15:33:00 - After exhausting all my ideas, I've started a new github thread to ask reproducibility questions for OpenQBMM.
+15:36:00 - The authors got back to me, Apparently Figure 2 shows the logNormal reconstruction of the analytic equation directly from the analytic moments extracted from that data. One thing I don't yet understand is why the size variable xi or i doesn't go to 0, and how they extract the moments from the analytic data because of this. Finally, they mention that the summation terms need to be divided by M0 which I don't remember seeing anywhere.
+17:03:00 - Following their instructions, I've extracted moments from the analytic distributions as listed, then I inverted those moments to get the weights/absicca for the nodes. This has produced a figure which looks nearly exactly like what is currently published. I'm currently working on adding the gammaEQMOM lines as well, however at this stage I can say that 4 more lines are added.
+
+F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
+F2 a(1+1+0) b(1+1+0) c(1+1+0) d(1+1+0)
+F3 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F5 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F7 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F9 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
+F11 a(0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+T2 1*(20*0.98+1*0.8)+2*(13*0.98+1*0.8+7*0.2)+3*(17*0.98+4*0.8)+4*(13*0.98+8*0.2)
+T3 4*(3*0.7)
+T9 4*0
+[111.4(25.7%)]@23:17:00
+
 --- Notes ---
 
