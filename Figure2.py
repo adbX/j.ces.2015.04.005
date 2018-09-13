@@ -1,9 +1,10 @@
 import csv
+import helpers
 import matplotlib.pyplot as plt
 import numpy as np
-import helpers
-import math
-import os
+
+Node_nums = [1, 2, 3, 4]
+max_nodes = max(Node_nums)
 
 # Read analytic data from file.
 x_analytic = []
@@ -19,71 +20,41 @@ with open("Case5_n_analytic.csv", "r") as analytic_file:
             y_analytic.append(y)
             last_y = y
 
-x_analytic.append(10.)
-y_analytic.append(y_analytic[-1])
+# Extract moments from distribution
+analytic_moments = []
+for i in range(0,2*max_nodes+1):
+    new_moment = 0.
+    for j in range(0,len(x_analytic)-1):
+        dx = x_analytic[j+1]-x_analytic[j]
+        x = (x_analytic[j+1]+x_analytic[j])/2.
+        y = (y_analytic[j+1]+y_analytic[j])/2.
+        new_moment += y*(x**i)*dx
+    analytic_moments.append(new_moment)
 
-x_analytic = np.array(x_analytic)
-y_analytic = np.array(y_analytic)
 
-# Produce Figures 1a-d
-plt.figure(1, figsize=(12,8), dpi=80)
+print("Moments are: ")
+for i in range(0,2*max_nodes+1):
+    print("M_%i = %f" % (i, analytic_moments[i]))
 
-node_num_list = [1, 2, 3, 4]
 
-x = np.linspace(1, 10, 100)
+x = np.linspace(1, 10, 300)
 
-time_end = 200.0
+# Produce Figures 2a-d
+plt.figure(2, figsize=(12,8), dpi=80)
 
-for node_num in node_num_list:
+for node_num in Node_nums:
+    node_definitions = helpers.perform_moment_inversion(node_num, analytic_moments)
+
     plt.subplot(220+node_num)
 
     plt.plot([], color="#0A246A", linestyle="-", label="Analytical solution")
     plt.plot([], color="#007F00", linestyle="--", label="LnEQMOM")
-    plt.plot([], color="red", linestyle="--", label="LnEQMOM")
 
     plt.plot(x_analytic, y_analytic, color="#0A246A", linestyle="-")
 
-    case_dir = "case5N%i" % node_num
-
-    node_definitions = {'n': node_num}
-    sigma = None
-    for i in range(0, node_num):
-        node_name = "node%i" % i
-        sigma_data = helpers.load_probe_data("%s/postProcessing/probes/0/sigma.%s.populationBalance" % (case_dir, node_name))
-        if sigma is None:
-            sigma = sigma_data[time_end]
-        else:
-            if sigma_data[time_end] != sigma:
-                print("ERROR!!! sigma is different!!")
-                sys.exit(-1)
-            else:
-                sigma = sigma_data[time_end]
-
-        abscissa_data = helpers.load_probe_data("%s/postProcessing/probes/0/abscissa.%s.populationBalance" % (case_dir, node_name))
-        weight_data = helpers.load_probe_data("%s/postProcessing/probes/0/weight.%s.populationBalance" % (case_dir, node_name))
-        node_definitions[i] = {'w': weight_data[time_end], 'ab': math.log(abscissa_data[time_end])}
-    node_definitions['sig'] = sigma
-
-    moment0_data = helpers.load_probe_data("%s/postProcessing/probes/0/moment.0.populationBalance" % case_dir)
-
-    abscissa_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/abscissa.node%i.populationBalance" % (node_num, node_num-1))
-    weight_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/weight.node%i.populationBalance" % (node_num, node_num-1))
-    sigma_data = helpers.load_probe_data("case5N%i/postProcessing/probes/0/sigma.node%i.populationBalance" % (node_num, node_num-1))
-
-    ## y = [weight_data[time_end]*helpers.kern(x, math.log(abscissa_data[time_end]), sigma_data[time_end]) for x in x]
-    #y = [helpers.kern(x, math.log(abscissa_data[time_end]), sigma_data[time_end]) for x in x]
-
-    #plt.plot(x, y, color="#007F00", linestyle="--")
-
-    y = [helpers.f_num(x, node_definitions)/moment0_data[200.0] for x in x]
+    y = [helpers.f_num(x, node_definitions)/analytic_moments[0] for x in x]
 
     plt.plot(x, y, color="#007F00", linestyle="--")
-
-    if os.path.exists("case5N%i/postProcessing/populationBalanceProbes/200/quadrature" % (node_num)):
-        plot_data = helpers.load_probe_data("case5N%i/postProcessing/populationBalanceProbes/200/quadrature" % (node_num))
-        x = plot_data.keys()
-        y = [plot_data[x] for x in x]
-        plt.plot(x, y, color="red", linestyle="--")
 
     plt.legend()
     plt.ylabel(r"$n(\xi)$")
@@ -93,4 +64,4 @@ for node_num in node_num_list:
 
 plt.subplots_adjust(left=0.11, right = 0.98, bottom=0.1, top=0.95, wspace=0.2, hspace = 0.15)
 
-plt.savefig("Figure2.png")
+plt.savefig("Figure2V2.png")
