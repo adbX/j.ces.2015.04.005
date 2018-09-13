@@ -22,11 +22,19 @@ def load_probe_data(filepath):
 def lognormal_moment(k, mu, sigma):
     return math.exp((k*mu)+(k*k*sigma*sigma/2))
 
+def gamma_moment(k, mu, sigma):
+    Lambda = mu/sigma
+    return (math.gamma(Lambda+k)/math.gamma(Lambda))*(mu/Lambda)**k
+
 def lognormal_analytic_moment(k, mu1, sigma1, mu2, sigma2):
     return (lognormal_moment(k, mu1, sigma1)+lognormal_moment(k, mu2, sigma2))/2.
 
 def lognormal_kern(x, mu, sigma):
     return math.exp(-(math.log(x)-mu)**2/(2*sigma**2))/(x*sigma*math.sqrt(2*math.pi))
+
+def gamma_kern(x, mu, sigma):
+    Lambda = mu/sigma
+    return ((x**(Lambda-1)*math.exp(-x/sigma))/(math.gamma(Lambda)*(sigma**Lambda)))
 
 def f_lognormal(x, mu1, sigma1, mu2, sigma2):
     return (lognormal_kern(x, mu1, sigma1)+lognormal_kern(x, mu2, sigma2))/2.
@@ -37,8 +45,17 @@ def f_num_lognormal(x, node_definitions):
         value += node_definitions[i]['w']*lognormal_kern(x, node_definitions[i]['ab'], node_definitions['sig'])
     return value
 
+def f_num_gamma(x, node_definitions):
+    value = 0
+    for i in range(0,node_definitions['n']):
+        value += node_definitions[i]['w']*gamma_kern(x, node_definitions[i]['ab'], node_definitions['sig'])
+    return value
+
 def f_num_single_lognormal(x, node_definitions, i):
     return node_definitions[i]['w']*lognormal_kern(x, node_definitions[i]['ab'], node_definitions['sig'])
+
+def f_num_single_gamma(x, node_definitions, i):
+    return node_definitions[i]['w']*gamma_kern(x, node_definitions[i]['ab'], node_definitions['sig'])
 
 def l2diff(f_func, p_func, xmin, xmax, N):
     dx = (xmax-xmin)/N
