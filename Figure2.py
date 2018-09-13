@@ -64,4 +64,4 @@ for node_num in Node_nums:
 
 plt.subplots_adjust(left=0.11, right = 0.98, bottom=0.1, top=0.95, wspace=0.2, hspace = 0.15)
 
-plt.savefig("Figure2V2.png")
+plt.savefig("Figure2.png")
