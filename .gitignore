@@ -1,0 +1,8 @@
+case*/[1-9]*
+case*/postProcessing
+*.pbeFoam
+*.png
+*.eps
+__pycache__
+*.txt
+secondaryQuadrature
