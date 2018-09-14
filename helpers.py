@@ -2,6 +2,7 @@ import math
 import csv
 import subprocess
 import re
+from shutil import copyfile
 
 def load_probe_data(filepath):
     data_dict = {}
@@ -34,7 +35,7 @@ def lognormal_kern(x, mu, sigma):
 
 def gamma_kern(x, mu, sigma):
     Lambda = mu/sigma
-    return ((x**(Lambda-1)*math.exp(-x/sigma))/(math.gamma(Lambda)*(sigma**Lambda)))
+    return (((x**(Lambda-1))*math.exp(-x/sigma))/(math.gamma(Lambda)*(sigma**Lambda)))
 
 def f_lognormal(x, mu1, sigma1, mu2, sigma2):
     return (lognormal_kern(x, mu1, sigma1)+lognormal_kern(x, mu2, sigma2))/2.
@@ -72,7 +73,10 @@ node_re = re.compile("Primary node (\d*)")
 weight_re = re.compile("Primary weight = (\d*\.\d*)")
 absicca_re = re.compile("Primary abscissa = (\d*\.\d*)")
 
-def perform_moment_inversion(node_num, analytic_moments):
+def perform_moment_inversion(node_num, analytic_moments, inversion_type='lognormal'):
+    # Prepare moment inversion for the appropriate type.    
+    copyfile('quadratureProperties.{}'.format(inversion_type), 'quadratureProperties')
+
     node_definitions = {'n': node_num}
 
     # Build command
@@ -112,7 +116,10 @@ def perform_moment_inversion(node_num, analytic_moments):
             temp_info['w'] = float(weight_match.group(1))
         absicca_match = absicca_re.match(line)
         if absicca_match:
-            temp_info['ab'] = math.log(float(absicca_match.group(1)))
+            if inversion_type == 'lognormal':
+                temp_info['ab'] = math.log(float(absicca_match.group(1)))
+            else:
+                temp_info['ab'] = float(absicca_match.group(1))
     if current_node != -1:
         node_definitions[current_node] = temp_info
 

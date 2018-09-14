@@ -32,7 +32,7 @@ for i in range(0,2*max_nodes+1):
     analytic_moments.append(new_moment)
 
 
-print("Moments are: ")
+print("Extracted Analytic Moments are: ")
 for i in range(0,2*max_nodes+1):
     print("M_%i = %f" % (i, analytic_moments[i]))
 
@@ -43,18 +43,23 @@ x = np.linspace(1, 10, 300)
 plt.figure(2, figsize=(12,8), dpi=80)
 
 for node_num in Node_nums:
-    node_definitions = helpers.perform_moment_inversion(node_num, analytic_moments)
+    node_definitions_lognormal = helpers.perform_moment_inversion(node_num, analytic_moments, inversion_type='lognormal')
+    node_definitions_gamma = helpers.perform_moment_inversion(node_num, analytic_moments, inversion_type='gamma')
 
     plt.subplot(220+node_num)
 
+    plt.plot([], color="#007F00", linestyle="-.", label="LnEQMOM")
+    plt.plot([], color="red", linestyle="--", label="GammaEQMOM")
     plt.plot([], color="#0A246A", linestyle="-", label="Analytical solution")
-    plt.plot([], color="#007F00", linestyle="--", label="LnEQMOM")
 
     plt.plot(x_analytic, y_analytic, color="#0A246A", linestyle="-")
 
-    y = [helpers.f_num_lognormal(x, node_definitions)/analytic_moments[0] for x in x]
+    y = [helpers.f_num_lognormal(x, node_definitions_lognormal)/analytic_moments[0] for x in x]
 
-    plt.plot(x, y, color="#007F00", linestyle="--")
+    plt.plot(x, y, color="#007F00", linestyle="-.")
+
+    y = [helpers.f_num_gamma(x, node_definitions_gamma)/analytic_moments[0] for x in x]
+    plt.plot(x, y, color="red", linestyle="--")
 
     plt.legend()
     plt.ylabel(r"$n(\xi)$")
