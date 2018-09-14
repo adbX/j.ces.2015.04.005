@@ -49,7 +49,7 @@ for node_num in Node_nums:
     plt.subplot(220+node_num)
 
     plt.plot([], color="#007F00", linestyle="-.", label="LnEQMOM")
-    plt.plot([], color="red", linestyle="--", label="GammaEQMOM")
+    plt.plot([], color="#D92900", linestyle="--", label="GammaEQMOM")
     plt.plot([], color="#0A246A", linestyle="-", label="Analytical solution")
 
     plt.plot(x_analytic, y_analytic, color="#0A246A", linestyle="-")
@@ -59,7 +59,7 @@ for node_num in Node_nums:
     plt.plot(x, y, color="#007F00", linestyle="-.")
 
     y = [helpers.f_num_gamma(x, node_definitions_gamma)/analytic_moments[0] for x in x]
-    plt.plot(x, y, color="red", linestyle="--")
+    plt.plot(x, y, color="#D92900", linestyle="--")
 
     plt.legend()
     plt.ylabel(r"$n(\xi)$")
