@@ -7,18 +7,9 @@ Node_nums = [1, 2, 3, 4]
 max_nodes = max(Node_nums)
 
 # Read analytic data from file.
-x_analytic = []
-y_analytic = []
-last_y = -1.
-with open("Passalaqua2015_Case5_N_RIG.csv", "r") as analytic_file:
-    csvreader = csv.reader(analytic_file, delimiter=",", quotechar='"')
-    for row in csvreader:
-        x = float(row[0])
-        y = float(row[1])
-        if y != last_y:
-            x_analytic.append(x)
-            y_analytic.append(y)
-            last_y = y
+analytic_data = helpers.load_csv_data("Passalaqua2015_Case5_N_RIG.csv")
+x_analytic = list(analytic_data.keys())
+y_analytic = list(analytic_data.keys())
 
 # Extract moments from distribution
 analytic_moments = []

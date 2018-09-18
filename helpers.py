@@ -20,6 +20,16 @@ def load_probe_data(filepath):
             pass
     return data_dict
 
+def load_csv_data(filepath):
+    data_dict = {}
+    with open(filepath, "r") as analytic_file:
+        csvreader = csv.reader(analytic_file, delimiter=",", quotechar='"')
+        for row in csvreader:
+            x = float(row[0])
+            y = float(row[1])
+            data_dict[x] = y
+    return data_dict
+
 def lognormal_moment(k, mu, sigma):
     return math.exp((k*mu)+(k*k*sigma*sigma/2))
 
