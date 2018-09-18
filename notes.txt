@@ -369,6 +369,7 @@ T9 4*0
 [120.5(27.3%)]@25:25:00
 
 20:24:00 - Asked another github question because I'm still missing information I need to complete the figure, i.e. the rigorous solution for M_0.
+20:24:00 - They got back to me, It turns out that the rigorous solution information for all of the examples is coming from the article Marchisio et al. 2003. I looked through the primary article, and Marchisio et al 2003 is cited, but not until later in the article after the comparisons to the exact values were taking place. I did not read past the sections I was replicating since I had not completed the replication yet. This is also the origin of the QMOM nodes mentioned in several figures. I will use the datathief to extract the rigorous plot information and store it as .dat files. The authors also agreed that the discrepencies I'm getting for Figure 3a are down to the integration range. It seems that the difference in integrating from [0,inf) as OpenQBMM does, and [1,inf) as their MATLAB code does will likely be the source of the issues.
 
 --- Notes ---
 
