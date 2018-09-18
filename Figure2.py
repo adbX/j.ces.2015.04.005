@@ -10,7 +10,7 @@ max_nodes = max(Node_nums)
 x_analytic = []
 y_analytic = []
 last_y = -1.
-with open("Case5_n_analytic.csv", "r") as analytic_file:
+with open("Passalaqua2015_Case5_N_RIG.csv", "r") as analytic_file:
     csvreader = csv.reader(analytic_file, delimiter=",", quotechar='"')
     for row in csvreader:
         x = float(row[0])
