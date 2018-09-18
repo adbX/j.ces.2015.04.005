@@ -371,5 +371,19 @@ T9 4*0
 20:24:00 - Asked another github question because I'm still missing information I need to complete the figure, i.e. the rigorous solution for M_0.
 20:24:00 - They got back to me, It turns out that the rigorous solution information for all of the examples is coming from the article Marchisio et al. 2003. I looked through the primary article, and Marchisio et al 2003 is cited, but not until later in the article after the comparisons to the exact values were taking place. I did not read past the sections I was replicating since I had not completed the replication yet. This is also the origin of the QMOM nodes mentioned in several figures. I will use the datathief to extract the rigorous plot information and store it as .dat files. The authors also agreed that the discrepencies I'm getting for Figure 3a are down to the integration range. It seems that the difference in integrating from [0,inf) as OpenQBMM does, and [1,inf) as their MATLAB code does will likely be the source of the issues.
 
+@article{MARCHISIO2003322,
+	title = "Quadrature method of moments for aggregation–breakage processes",
+	journal = "Journal of Colloid and Interface Science",
+	volume = "258",
+	number = "2",
+	pages = "322 - 334",
+	year = "2003",
+	issn = "0021-9797",
+	doi = "https://doi.org/10.1016/S0021-9797(02)00054-1",
+	url = "http://www.sciencedirect.com/science/article/pii/S0021979702000541",
+	author = "Daniele L. Marchisio and R.Dennis Vigil and Rodney O. Fox",
+	keywords = "Population balance, Aggregation, Breakage, Quadrature method of moments"
+}
+
 --- Notes ---
 
