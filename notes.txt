@@ -429,6 +429,28 @@ T9 4*0
 [126.5(28.7%)]@30:14:00
 
 24:11:00 - I'm now going to try and transform the Figure 3 script into a generalized script for each of the cases.
+24:34:00 - I've run into an issue with an OverflowError in Python while calculating the Gamma function of ~170 for one of the cases.
+24:43:00 - The OverflowError is solved by using the loggamma function from scipy to help calculate the log of the loggamma kernel, then exponentiating it. I've now replicated or neraly replicated Figures 4, 6, 8, and 10. in 10d, what I'm getting is quite different from the authors. This seems to be a mistake on the authors part because 10d looks nearly identical to 10c. It looks like 10c only has 3 nodes when its supposed to have 4. I'll rate the LnEQMOM and GammaEQMOM lines in 10d as 0.6 rather than 1.
+
+F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
+F2 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
+F3 a(1+0.6+0.6+0.6+0.6) b(1+1) c(1+1+1) d(1+1+1)
+F4 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
+F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F6 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
+F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F8 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
+F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F10 a(1+1+1) b(1+1+1) c(1+1+1) d(1+0.6+0.6)
+F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
+F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+T2 1*(20*0.98+1*0.8)+2*(13*0.98+1*0.8+7*0.2)+3*(17*0.98+4*0.8)+4*(13*0.98+8*0.2)
+T3 4*(3*0.7)
+T9 4*0
+[174.1(39.4%)]@30:57:00
+
+24:56:00 - I'm now working on making a similar script to produce the odd figures from 3 to 11.
 
 --- Notes ---
 
