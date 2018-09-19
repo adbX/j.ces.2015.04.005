@@ -2,6 +2,7 @@ import math
 import csv
 import subprocess
 import re
+import scipy.special as scipy_special
 from shutil import copyfile
 
 def load_probe_data(filepath):
@@ -45,7 +46,19 @@ def lognormal_kern(x, mu, sigma):
 
 def gamma_kern(x, mu, sigma):
     Lambda = mu/sigma
-    return (((x**(Lambda-1))*math.exp(-x/sigma))/(math.gamma(Lambda)*(sigma**Lambda)))
+    try:
+        return (((x**(Lambda-1))*math.exp(-x/sigma))/(math.gamma(Lambda)*(sigma**Lambda)))
+    except OverflowError:
+        try:
+            log_kern = (Lambda-1)*math.log(x)-(x/sigma)-scipy_special.loggamma(Lambda)-Lambda*math.log(sigma)
+            return math.exp(log_kern)
+        except OverflowError as e:
+            print("x: ", x)
+            print("mu: ", mu)
+            print("sigma: ", sigma)
+            print("Lambda: ", Lambda)
+            raise e
+
 
 def f_lognormal(x, mu1, sigma1, mu2, sigma2):
     return (lognormal_kern(x, mu1, sigma1)+lognormal_kern(x, mu2, sigma2))/2.
