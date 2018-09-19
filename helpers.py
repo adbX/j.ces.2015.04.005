@@ -2,7 +2,8 @@ import math
 import csv
 import subprocess
 import re
-import scipy.special as scipy_special
+import scipy.integrate as integrate
+import scipy.special as special
 from shutil import copyfile
 
 def load_probe_data(filepath):
@@ -50,7 +51,7 @@ def gamma_kern(x, mu, sigma):
         return (((x**(Lambda-1))*math.exp(-x/sigma))/(math.gamma(Lambda)*(sigma**Lambda)))
     except OverflowError:
         try:
-            log_kern = (Lambda-1)*math.log(x)-(x/sigma)-scipy_special.loggamma(Lambda)-Lambda*math.log(sigma)
+            log_kern = (Lambda-1)*math.log(x)-(x/sigma)-special.loggamma(Lambda)-Lambda*math.log(sigma)
             return math.exp(log_kern)
         except OverflowError as e:
             print("x: ", x)
@@ -90,6 +91,16 @@ def l2diff(f_func, p_func, xmin, xmax, N):
 
     summation = math.sqrt(summation*dx)
     return summation
+
+def coalescence_ndf(t, xi):
+    return ((math.exp(-t-2*xi+xi*math.exp(-t)))/(xi*math.sqrt(1-math.exp(-t))))*special.iv(1, 2*xi*math.sqrt(1-math.exp(-t)))
+
+def condensation_ndf(t, xi):
+    return ((xi*math.exp(-t/2))**3*math.exp(-xi*math.exp(-t/2)))/(6*math.exp(t/2))
+
+def extract_analytic_moment(f, xmin, xmax, N):
+    # We are explicitly ignoring error here!!
+    return integrate.quad(lambda x: (x**N)*f(x), xmin, xmax)[0]
 
 sigma_re = re.compile("Sigma = (\d*\.\d*)")
 node_re = re.compile("Primary node (\d*)")
