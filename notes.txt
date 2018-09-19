@@ -469,7 +469,11 @@ F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0
 T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
 T3 4*(3*0.7)
 T9 4*0
-[221.1(50.1%)]@30:57:00
+[221.1(50.1%)]@32:42:00
+
+26:50:00 - I'm now working on Figures 12 and 13. These only require moment inversion, so they should be fairly easy.
+27:13:00 - There's a new problem, the coalescence and condensation ndfs are defined with time dependence. It however is not mentioned what time is used for plots 12 and 13. I will try to guess it, but I may have to look at subordinate articles or ask.
+27:51:00 - I've used the WebPlotDigitizer to find an intercept of the plot from the article and then used sage to find the correct value of t for that intercept. This has revealed t = 0.59843625345 for Figure 12 and t = 0.622446664404 for Figure 13. The work is in FindTValues.sage.
 
 
 --- Notes ---
