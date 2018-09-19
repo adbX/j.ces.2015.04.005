@@ -30,7 +30,7 @@ x_analytic = list(analytic_data.keys())
 y_analytic = list(analytic_data.values())
 
 # Produce Figures a-d
-plt.figure(3, figsize=(12,8), dpi=80)
+plt.figure(case_num, figsize=(12,8), dpi=80)
 
 # Produce Figure a
 plt.subplot(221)
