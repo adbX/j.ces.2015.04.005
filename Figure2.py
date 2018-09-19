@@ -9,7 +9,7 @@ max_nodes = max(Node_nums)
 # Read analytic data from file.
 analytic_data = helpers.load_csv_data("Passalaqua2015_Case5_N_RIG.csv")
 x_analytic = list(analytic_data.keys())
-y_analytic = list(analytic_data.keys())
+y_analytic = list(analytic_data.values())
 
 # Extract moments from distribution
 analytic_moments = []
