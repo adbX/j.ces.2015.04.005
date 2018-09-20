@@ -476,7 +476,9 @@ T9 4*0
 27:51:00 - I've used the WebPlotDigitizer to find an intercept of the plot from the article and then used sage to find the correct value of t for that intercept. This has revealed t = 0.59843625345 for Figure 12 and t = 0.622446664404 for Figure 13. The work is in FindTValues.sage.
 
 28:10:00 - I'm finding now that at high node numbers, i.e. high numbers of moments, it is difficult for the inversion process to work properly. I think I will consult the authors again about this.
-
+28:22:00 - Using scipy's integrate.quad function is giving me trouble too. If I try to integrate the coalescence function beyond 1e-10,5.3e2 it gives an infinite answer. which is very strange.
+28:33:00 - I've managed to get my moment calculating code to match what mathematica gives me. This was done by careful inspection of function values at various points to ensure that the max double is never overrridden. One possibility I pursued was to calculate the function in the log domain and then exponentiate, however this seems to have resulted in a loss of precision since the resulting integrals were somewhere around half the actual values.
+28:37:00 - The more accurate moments have not solved the inversion failure problem. I will now have to wait to hear from the authors.
 
 --- Notes ---
 
