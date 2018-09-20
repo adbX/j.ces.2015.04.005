@@ -92,8 +92,15 @@ def l2diff(f_func, p_func, xmin, xmax, N):
     summation = math.sqrt(summation*dx)
     return summation
 
+def log_coalescence_ndf(t, xi, loud=False):
+    if loud:
+        print(special.iv(1, 2*xi*math.sqrt(1-math.exp(-t))))
+    return -t-2*xi+xi*math.exp(-t)-math.log(xi)-(1/2)*(1-math.exp(-t))+math.log(special.iv(1, 2*xi*math.sqrt(1-math.exp(-t))))
+
 def coalescence_ndf(t, xi):
-    return ((math.exp(-t-2*xi+xi*math.exp(-t)))/(xi*math.sqrt(1-math.exp(-t))))*special.iv(1, 2*xi*math.sqrt(1-math.exp(-t)))
+    #return math.exp(log_coalescence_ndf(t,xi))
+    return (math.exp(-t-2*xi+xi*math.exp(-t))/(xi*math.sqrt(1-math.exp(-t))))*special.iv(1,2*xi*math.sqrt(1-math.exp(-t)))
+
 
 def condensation_ndf(t, xi):
     return ((xi*math.exp(-t/2))**3*math.exp(-xi*math.exp(-t/2)))/(6*math.exp(t/2))
