@@ -178,7 +178,8 @@ def perform_moment_inversion(node_num, analytic_moments, inversion_type='lognorm
 
     return node_definitions
 
-def lognormal_eqmom_invert(mom, n, tolerance=1e-15):
+def lognormal_eqmom_invert(mom, n, abs_tolerance=1e-15, rel_tolerance = 1e-6):
+    print("0: mom: {} n: {}".format(mom, n))
     x = []
     w = []
     sig = None
@@ -191,26 +192,27 @@ def lognormal_eqmom_invert(mom, n, tolerance=1e-15):
         print("negative number density in 1-D quadrature!")
         return [x, w]
 
-    #1. Guess sigma
-    z = math.exp(1.**2/2.)
+    #1. Guess z
+    z = 1.
+
+    print("1: initial z: {}".format(z))
 
     mom_star = []
     for i in range(0, 2*n+1):
         mom_star.append(0.)
 
-    print("1")
     error = np.inf
-    while error > tolerance:
-        print("2")
+    while True:
         #2. Generate M_star moments
         for i in range(0, 2*n):
-            mom_star[i] = mom[i]*z**(-(2*i)**2)
+            mom_star[i] = mom[i]/z**(i**2)
+
+
+        print("2: mom_star: {}".format(mom_star))
 
         #3. use the wheeler inversion to obtain weights and abscissae for the mom_star moments
         [chi, weight] = wheeler_invert(mom_star, n)
-        print("wheeler result")
-        print(chi)
-        print(weight)
+        print("3: wheeler result chi: {} weight: {}".format(chi, weight))
 
         x = chi
         w = weight
@@ -218,15 +220,26 @@ def lognormal_eqmom_invert(mom, n, tolerance=1e-15):
         #4. Calculate mom_star[2n]
         mom_star[2*n] = 0.
         for i in range(0, n):
-            mom_star[2*n] = weight[i]*chi[i]**(2*n)
+            mom_star[2*n] += weight[i]*chi[i]**(2*n)
+
+        print("4: mom: {}".format(mom[0:2*n+1]))
+        print("4: mom_star: {}".format(mom_star))
 
         #5. J function and error:
-        error = abs(m[2*n]-z**((2*n)**2)*ms[2*n])
-        if error >= tolerance:
-            z = (mom[2*n]/mom_star[2*n])**(-(2*n)**2)
+        new_error = abs(mom[2*n]-z**((2*n)**2)*mom_star[2*n])
+        print("4 1: error: {}".format(error))
+        if abs(new_error-error)/error < rel_tolerance:
+            break
+        else:
+            if error < abs_tolerance:
+                break
+            else:
+                z = (mom[2*n]/mom_star[2*n])**(1/(2*n)**2)
+                error = new_error
+                print("5: new z: ", z)
 
     sig = math.sqrt(2*math.log(z))
-    return [ w, chi, sig]
+    return [ x, w, sig]
     
 
 def wheeler_invert(mom, n):
@@ -244,9 +257,8 @@ def wheeler_invert(mom, n):
         x = [0]
         return [x, w]
     if n == 1:
-        w = mom[0]
-        x = mom[1]/mom[0]
-        nout = 1
+        w = [mom[0]]
+        x = [mom[1]/mom[0]]
         return [ x, w]
 
     Z = np.zeros((2*n+1,2*n+1))
