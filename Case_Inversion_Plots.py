@@ -22,14 +22,7 @@ y_analytic = list(analytic_data.values())
 # Extract moments from distribution
 analytic_moments = []
 for i in range(0,2*max_nodes+1):
-    new_moment = 0.
-    for j in range(0,len(x_analytic)-1):
-        dx = x_analytic[j+1]-x_analytic[j]
-        x = (x_analytic[j+1]+x_analytic[j])/2.
-        y = (y_analytic[j+1]+y_analytic[j])/2.
-        new_moment += y*(x**i)*dx
-    analytic_moments.append(new_moment)
-
+    analytic_moments.append(helpers.extract_moments_from_data(x_analytic, y_analytic, i))
 
 print("Extracted Analytic Moments are: ")
 for i in range(0,2*max_nodes+1):

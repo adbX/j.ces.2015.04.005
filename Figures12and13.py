@@ -17,6 +17,9 @@ coalescence_moments = []
 for i in range(0,2*max_nodes+1):
     coalescence_moments.append(helpers.extract_analytic_moment(coalescence_func, 1e-10, 5e2, i))
 
+print(helpers.lognormal_eqmom_invert(coalescence_moments, 3, abs_tolerance=1e-6, rel_tolerance=1e-3))
+sys.exit(0)
+
 print("Coalescence Moments")
 for i in range(0,2*max_nodes+1):
     print("M_{} = {}".format(i, coalescence_moments[i]))
