@@ -77,7 +77,7 @@ T2 1:0+2:0+3:0+4:0
 T3 4*0
 T8 15:0
 T9 8:0
-[2.5(0.5%)]@00:20:33
+[2.5(0.5%)]@03:01:45
 
 05:02:00 - I'm still trying to understand how the moment inversion algorithm works. I've looked at the following papers which were cited by this paper or previous papers:
 
