@@ -49,7 +49,7 @@ for case in cases:
 
     x = np.linspace(0, 1, 200)
 
-    y = [f(math.exp(x**2/2.)) for x in x]
+    y = [f(math.exp(v**2/2.)) for v in x]
     #y = [f(x) for x in x]
 
     plt.plot(x, y, linestyle='-', color='k')

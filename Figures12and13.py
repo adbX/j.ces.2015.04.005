@@ -30,7 +30,7 @@ for i in range(0,2*max_nodes+1):
 plt.figure(12, figsize=(12,12), dpi=80)
 
 #x = np.linspace(1e-5,250., 200)
-#y = [coalescence_func(x) for x in x]
+#y = [coalescence_func(v) for v in x]
 #
 #plt.plot(x, y)
 #
@@ -44,7 +44,7 @@ for num_nodes in num_nodes_list:
     plt.subplot(320+plot_i)
 
     x = np.linspace(1e-5, 250., 50)
-    y = [coalescence_func(x) for x in x]
+    y = [coalescence_func(v) for v in x]
 
     plt.plot([], color="#0A246A", linestyle="-", label="Analytical solution")
     plt.plot([], color="#007F00", linestyle="-.", label="EQMOM each node")
@@ -59,14 +59,14 @@ for num_nodes in num_nodes_list:
     # Plot individual nodes
     for n in range(0, num_nodes):
         try:
-            y = [helpers.f_num_single_lognormal(x, node_definitions, n) for x in x]
+            y = [helpers.f_num_single_lognormal(v, node_definitions, n) for v in x]
             plt.plot(x, y, color="#007F00", linestyle="-.")
         except:
             pass
 
     # Plot full solution
     try:
-        y = [helpers.f_num_lognormal(x, node_definitions) for x in x]
+        y = [helpers.f_num_lognormal(v, node_definitions) for v in x]
         plt.plot(x, y, color="#D82900", linestyle="None", marker="o", markerfacecolor="None")
     except:
         pass
@@ -96,7 +96,7 @@ plt.savefig("Figure12.png")
 #    plt.subplot(320+plot_i)
 #
 #    x = np.linspace(1e-5, 80., 50)
-#    y = [condensation_func(x) for x in x]
+#    y = [condensation_func(v) for v in x]
 #
 #    plt.plot([], color="#0A246A", linestyle="-", label="Analytical solution")
 #    plt.plot([], color="#007F00", linestyle="-.", label="EQMOM each node")
@@ -111,14 +111,14 @@ plt.savefig("Figure12.png")
 #    # Plot individual nodes
 #    for n in range(0, num_nodes):
 #        try:
-#            y = [helpers.f_num_single_lognormal(x, node_definitions, n) for x in x]
+#            y = [helpers.f_num_single_lognormal(v, node_definitions, n) for v in x]
 #            plt.plot(x, y, color="#007F00", linestyle="-.")
 #        except:
 #            pass
 #
 #    # Plot full solution
 #    try:
-#        y = [helpers.f_num_lognormal(x, node_definitions) for x in x]
+#        y = [helpers.f_num_lognormal(v, node_definitions) for v in x]
 #        plt.plot(x, y, color="#D82900", linestyle="None", marker="o", markerfacecolor="None")
 #    except:
 #        pass
