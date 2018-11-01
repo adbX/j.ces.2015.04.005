@@ -18,6 +18,27 @@ case_range = {1: [60, 60, 0.05],
               3: [500, 450, 0.02],
               4: [60, 60, 0.2]}
 
+article_errors_table_2 = {1: {2: [1.34e-16, 1.48e-16, 2.74e-16, 8.88e-16, 9.64e-16],
+                              3: [1.41e-16, 1.48e-16, 2.74e-16, 8.88e-16, 9.64e-16, 2.03e-16, 3.56e-16],
+                              4: [4.36e-16, 1.47e-16, 2.74e-16, 8.88e-16, 9.64e-16, 2.03e-16, 3.56e-16, 2.18e-16, 4.12e-16]},
+                          2: {2: [1.35e-16, 1.27e-16, 2.67e-16, 8.84e-16, 9.63e-16],
+                              3: [1.37e-16, 1.27e-16, 2.67e-16, 8.84e-16, 9.63e-16, 2.03e-16, 1.78e-16],
+                              4: [4.35e-16, 1.27e-16, 2.67e-16, 8.84e-16, 9.63e-16, 2.03e-16, 1.78e-16, 2.19e-16, 4.12e-15]},
+                          3: {2: [1.48e-16, 1.47e-16, 2.22e-16, 4.36e-16, 6.08e-16],
+                              3: [1.97e-16, 1.48e-16, 2.22e-16, 4.36e-16, 6.08e-16, 7.81e-16, 8.21e-16],
+                              4: [2.71e-16, 1.48e-16, 2.22e-16, 4.36e-16, 6.08e-16, 7.81e-16, 8.21e-16, 1.30e-16, 1.87e-16]},
+                          4: {2: [1.34e-15, 1.28e-14, 2.66e-14, 8.81e-14, 9.61e-14],
+                              3: [1.40e-15, 1.28e-14, 2.66e-14, 8.81e-14, 9.61e-14, 2.02e-14, 3.56e-14],
+                              4: [4.36e-15, 1.27e-12, 2.66e-12, 8.81e-12, 9.61e-12, 2.02e-12, 3.56e-12, 2.19e-12, 4.12e-12]}}
+
+article_errors_table_3 = {1: {2: 1.90e-13, 3: 2.21e-14, 4: 6.04e-16},
+                          2: {2: 2.88e-12, 3: 3.93e-14, 4: 3.90e-14},
+                          3: {2: 2.68e-2, 3: 6.68e-3, 4: 2.03e-3},
+                          4: {2: 2.76e-1, 3: 1.10e-1, 4: 1.07e-1}}
+
+def calc_err(expected, got):
+    return 100.*abs(expected-got)/expected
+
 case_analytic_moments = {}
 case_numerical_nodes = {}
 case_numerical_moments = {}
@@ -68,7 +89,7 @@ for case in case_analytic_moments:
                 report_string += "            \t"
             else:
                 mom_err = abs(case_analytic_moments[case][k]-case_numerical_moments[case][num][k])/case_analytic_moments[case][k]
-                report_string += "E_%i %.2e\t" % (k, mom_err)
+                report_string += "E_%i %.2e (%.1f%%)\t" % (k, mom_err, calc_err(article_errors_table_2[case][num][k],mom_err))
         print(report_string)
     print()
 
@@ -89,6 +110,7 @@ for case in case_vars:
 
         d = helpers.l2diff(F, P, 1e-12, 500, 5000)/case_analytic_moments[case][0]
         case_line.append(d)
+        case_line.append(calc_err(article_errors_table_3[case][num_nodes],d))
     case_lines.append(case_line)
 
 print("Table 3")
@@ -96,7 +118,7 @@ for line in case_lines:
     if type(line[0]) is str:
         print("%s\t%s\t%s\t%s" % (line[0], line[1], line[2], line[3]))
     else:
-        print("%i\t%e\t%e\t%e" % (line[0], line[1], line[2], line[3]))
+        print("%i\t%e (%.2f%%)\t%e (%.2f%%)\t%e (%.2f%%)" % (line[0], line[1], line[2], line[3], line[4], line[5], line[6]))
 
 # Produce Figures 1a-d
 plt.figure(1, figsize=(12,8), dpi=80)
