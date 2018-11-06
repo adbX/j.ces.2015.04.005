@@ -1,0 +1,11 @@
+0h21m: Created base Docker image, installed with various Python packages needed for the Python scripts bundled with the projects
+0h47m: Added in OpenFOAM and OpenQBMM to Docker image, ready to run the RunCases.sh script, getting errors with missing the postProcessing/probes directories for each case
+1h10m: Fixed Figure14.py and Figures12and13.py scripts' list comprehension problems, using same variable name to iterate as list that it is iterating through
+1h15m: Switched to Python3, which seems to what is intended (the prior fix for list comprehension is not necessary for Python3)
+1h16m: Scripts Figures12and13.py and Tables2and3andFigure1.py break when run due to trying to execute command Test-ExtendedMomentInversion from helpers.py script; likely some environment setup is missing
+1h39m: After discussing more with Matt, determined that what is missing is building OpenQBMM, which creates various binaries that are needed, including that Test-ExtendedMomentInversion; also, the cases actually were never really run, as the main binary pbeFoam was also never built
+1h46m: Can finish running cases (still not clear on how to compare that they did right thing) and could run Tables2and3andFigure1.py successfully
+2h37m: Played more with setting up Docker image to build OpenQBMM as part of building image (not counting several hours in waiting for to finish everytime was unsuccessful); setting up quick script that should run other scripts as part of process
+2h42m: Helper script that builds OpenQBMM not working properly when run within Docker build process, finally found that it is crashing due to not finding curl (leading to entire image not built completely)
+2h43m: Added in to the overall running script some checking of Tables 2 and 3, but they are not matching what is committed in repository
+2h45m: Added in to the overall running script the commands to generate remaining figures, but inversion plots are crashing, sometimes even from running commands from OpenFOAM; furthermore, comparison plots do not match what is committed
