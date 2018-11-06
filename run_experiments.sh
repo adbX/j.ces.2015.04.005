@@ -4,7 +4,13 @@
 bash RunCases.sh
 
 # Run script for tables 2 and 3, figure 1
-python3 Tables2and3andFigure1.py
+# Also checks that the output for Tables2and3 match
+python3 Tables2and3andFigure1.py > actual_Tables2and3.txt
+if [[ $(diff Tables2and3.txt actual_Tables2and3.txt) != "" ]]; then
+    echo "Tables 2 and 3: FAIL"
+else
+    echo "Tables 2 and 3: PASS"
+fi
 
 # Run script for Figures 12 and 13
 python3 Figures12and13.py
