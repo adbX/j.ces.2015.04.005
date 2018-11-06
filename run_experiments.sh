@@ -17,3 +17,7 @@ python3 Figures12and13.py
 
 # Run script for Figure 14
 python3 Figure14.py
+
+# Run the scripts for all the other figures
+bash Create_Comparison_Plots.sh
+bash Create_Inversion_Plots.sh
