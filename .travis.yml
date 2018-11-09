@@ -1,0 +1,22 @@
+sudo: true
+
+dist: xenial
+
+before_install:
+        - sudo apt-get -y update
+        - sudo apt-get install -y build-essential python python-tk python3-pip wget software-properties-common apt-transport-https git
+        - sudo pip3 install matplotlib
+        - sudo pip3 install scipy
+        - sh -c "wget -O - http://dl.openfoam.org/gpg.key | sudo apt-key add -"
+        - sudo add-apt-repository http://dl.openfoam.org/ubuntu
+        - sudo apt-get update
+        - sudo apt-get install -y openfoam6
+        - echo "source /opt/openfoam6/etc/bashrc" >> ~/.bashrc
+
+install:
+        - git submodule init && git submodule update
+        - cd OpenQBMM
+        - ./Allwmake
+
+script:
+        - pbeFoam -help
