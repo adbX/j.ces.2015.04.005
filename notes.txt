@@ -538,7 +538,8 @@ T8 15:0
 T9 8:0
 [249.6(46.6%)]@44:20:00
 
-
+Reset timer!
+00:00:00: Adding LICENSE Info, and travis building.
 
 
 --- Notes ---
