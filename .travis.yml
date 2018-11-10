@@ -25,4 +25,6 @@ install:
 
 script:
         - source /opt/openfoam6/etc/bashrc
+        - pwd
+        - ls
         - bash RunCase.sh
