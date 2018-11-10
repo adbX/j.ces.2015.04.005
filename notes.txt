@@ -540,6 +540,10 @@ T9 8:0
 
 Reset timer!
 00:00:00: Adding LICENSE Info, and travis building.
+00:47:00: Still trying to get OpenQBMM building and running in travis.
+00:51:00: Finally travis is building and running a simple example from this repo.
+
+Reset timer!
 
 
 --- Notes ---
