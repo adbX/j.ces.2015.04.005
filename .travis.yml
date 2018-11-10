@@ -22,9 +22,8 @@ install:
         - source /opt/openfoam6/etc/bashrc
         - cd OpenQBMM
         - ./Allwmake
+        - cd ..
 
 script:
         - source /opt/openfoam6/etc/bashrc
-        - pwd
-        - ls
         - bash RunCase.sh
