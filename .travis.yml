@@ -24,4 +24,5 @@ install:
         - ./Allwmake
 
 script:
-        - pbeFoam -help
+        - source /opt/openfoam6/etc/bashrc
+        - bash ./RunCase.sh
