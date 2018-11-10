@@ -25,4 +25,4 @@ install:
 
 script:
         - source /opt/openfoam6/etc/bashrc
-        - bash ./RunCase.sh
+        - bash RunCase.sh
