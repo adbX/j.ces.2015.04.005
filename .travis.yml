@@ -19,6 +19,7 @@ git:
 install:
         - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
         - git submodule update --init --recursive
+        - source /opt/openfoam6/etc/bashrc
         - cd OpenQBMM
         - ./Allwmake
 
