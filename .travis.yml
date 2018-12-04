@@ -27,3 +27,4 @@ install:
 script:
         - source /opt/openfoam6/etc/bashrc
         - bash ./travis/RunCase.sh
+        - python ./travis/CheckCaseResults.py
