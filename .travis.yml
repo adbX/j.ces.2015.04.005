@@ -26,4 +26,4 @@ install:
 
 script:
         - source /opt/openfoam6/etc/bashrc
-        - bash RunCase.sh
+        - bash ./travis/RunCase.sh
