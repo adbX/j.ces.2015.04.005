@@ -27,6 +27,8 @@ RUN \
   && echo "source /opt/openfoam6/etc/bashrc" >> ~/.bashrc
 
 # Update the submodule for OpenQBMM and build it
+ENV OpenFOAM_Install_Dir /opt/openfoam6
+ENV Project_Dir /app
 RUN \
   apt-get install -y git
 RUN \
@@ -34,7 +36,7 @@ RUN \
   && git submodule update
 RUN \
   apt-get install -y curl \
-  && /bin/bash -xec /app/build_OpenQBMM.sh
+  && /bin/bash -xec /app/build.sh
 
 # Misc
 RUN \

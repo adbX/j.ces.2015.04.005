@@ -1,8 +1,12 @@
 #!/bin/bash
-set -e
+
+# Source environment
+source env.sh
+echo "${OpenFOAM_Install_Dir}"
+source ${OpenFOAM_Install_Dir}/etc/bashrc
 
 # Build software
-bash buid.sh
+bash build.sh
 
 # Run cases
 bash RunCases.sh
