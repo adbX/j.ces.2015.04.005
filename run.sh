@@ -1,4 +1,8 @@
 #!/bin/bash
+set -e
+
+# Build software
+bash buid.sh
 
 # Run cases
 bash RunCases.sh
