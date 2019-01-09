@@ -1,83 +1,83 @@
 --- Assets ---
 
-Figures [249] 1a,b,c,d(6 curves) 2a,b,c,d(3 curves) 3a(5 curves),b(2curves),c,d(3 curves) 4a,b,c,d(3 curves) 5a(4 curves),b(2curves),c,d(3 curves) 6a,b,c,d(3 curves) 7a(4 curves),b(2 curves),c,d(3 curves) 8a,b,c,d(3 curves) 9a(4 curves),b(2 curves),c,d(3 curves) 10a,b,c,d(3 curves) 11a(6 curves),b(2 curves),c,d(3 curves) 12,a(3 curves),b(4 curves),c(5 curves),d(6 curves),e(7 curves),f(8 curves) 13,a(3 curves),b(4 curves),c(5 curves),d(6 curves),e(7 curves),f(8 curves) 14(3*5 figures, 2 elements each)
+Figures [214] 1a,b,c,d(6 curves) 2(1+)a,b,c,d(2 curves) 3(1+)a(4 curves),c,d(3 curves) 4(1+)a,b,c,d(2 curves) 5(1+)a(3 curves),c,d(3 curves) 6(1+)a,b,c,d(2 curves) 7(1+)a(3 curves),c,d(3 curves) 8(1+)a,b,c,d(2 curves) 9(1+)a(3 curves),c,d(3 curves) 10(1+)a,b,c,d(2 curves) 11(1+)a(5 curves),c,d(3 curves) 12(1+)a(2 curves),b(3 curves),c(4 curves),d(6 curves),e(7 curves),f(8 curves) 13(1+),a(2 curves),b(3 curves),c(4 curves),d(6 curves),e(7 curves),f(8 curves) 14(3*5 figures, 2 elements each)
 Tables [287] 2(4 cases*(21 numbers(3 different Ns))) 3(4 cases*(3 ns)) 8(5*3 values) 9(4*2 values) 
-Numbers [0]
-Total [536]
+Total [501]
+
+Max Score: 1002
 
 --- Work Log ---
 
 00:00:00 - We begin with OpenQBMM which appears to have implemented some examples which reference this paper.
 
 F1 a(0+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
-F2 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F3 a(0+0+0+0+0) b(0+0) c(0+0+0) d(0+0+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0+0+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0+0+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0+0+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0+0+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F2 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F3 (0) a(0+0+0+0) c(0+0+0) d(0+0+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(0+0+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(0+0+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(0+0+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(0+0+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:0+2:0+3:0+4:0
+T2 1:(0*21) 2:(0*21) 3:(0*21) 4:(0*21)
 T3 4*0
 T8 15:0
 T9 8:0
 [0(0%)]@00:00:00
 
 00:06:24 - To start, it seems that in each of the validation directories pdeFoam/{madadiPassalacquaGamma,madadiPassalacquaLognormal,madadiPassalacquaQMOM} we have a validation directory where d_43 is compared to input validation data.
-00:20:33 - case 5 looks similar to what's in F3d. case 6 looks similar to F5d. case 7 looks similar to F7d. case 8 looks similar to F9d. case 9 looks similar to F11d, but it crashed half way through. I'm going to put down 10% replications for the LnQMOM trace of each of these plots and an 20% replication for each of the rigorous solutions for these cases.
+00:20:33 - case 5 looks similar to what's in F3d. case 6 looks similar to F5d. case 7 looks similar to F7d. case 8 looks similar to F9d. case 9 looks similar to F11d, but it crashed half way through. I'm going to put down 10% replications for the LnQMOM trace of each of these plots and an 20% replication for each of the rigorous solutions for these cases. EDIT: percentages revised to new point system. Each is now '1' instead.
 
 F1 a(0+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
-F2 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F3 a(0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F2 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F3 (0) a(0+0+0+0) c(0+0+0) d(1+1+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-
-T2 1:0+2:0+3:0+4:0
+T2 1:(0*21) 2:(0*21) 3:(0*21) 4:(0*21)
 T3 4*0
 T8 15:0
 T9 8:0
-[1.5(0.2%)]@00:20:33
+[10(1.0%)]@00:20:33
 
 00:45:00 - It seems that various kernel information is stored in the file constant/populationBalanceProperties. There seem to be some default values which are overridden in several cases. for example, the powerlaw breakup kernel has a default power of 3 which is overridden to 6 in case 8.
 00:52:00 - I've found where the initial values for the moments are set. They are set in 0/moment.*. Possible mistake either in Table 4 or the code. 
 00:54:00 - Also important is constant/quadratureProperties.populationBalance which sets the moment inversion stategy and informs it of how many moments there should be.
 02:06:00 - Apparently Figure 1 is showing how an approximation in their method affects the accuracy of the result. This refers to a somewhat complex method of determining Moment values. I will first try to build the analytic lines in each plot using gnuplot since other examples from existing cases seem to use gnuplot.
-03:01:45 - Got the analytic plot from Figure 1a plotted. (Ran into another integer division issue. I need to stop assuming that integer division works like rational division.. I got a bit too excited about sagemath allowing rational division)
+03:01:45 - Got the analytic plot from Figure 1a plotted. (Ran into another integer division issue. I need to stop assuming that integer division works like rational division.. I got a bit too excited about sagemath allowing rational division) - EDIT: Score revised '1' -> '2'.
 
-F1 a(1+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
-F2 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F3 a(0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
+F2 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F3 (0) a(0+0+0+0) c(0+0+0) d(1+1+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:0+2:0+3:0+4:0
+T2 1:(0*21) 2:(0*21) 3:(0*21) 4:(0*21)
 T3 4*0
 T8 15:0
 T9 8:0
-[2.5(0.5%)]@03:01:45
+[12(1.2%)]@03:01:45
 
 05:02:00 - I'm still trying to understand how the moment inversion algorithm works. I've looked at the following papers which were cited by this paper or previous papers:
 
@@ -170,73 +170,73 @@ However, I now get another error since apparently it can't find the polyMesh dir
 
 05:00:00 - The authors inform me that this article was completed using Matlab code and this code was written in a more general way. Additionally, the code is not meant to produce results on time step 0 so I will have to resort to the compilation method.
 
-07:43:00 - I've now adjusted the Test-ExtendedMomentInversion program so that it takes command line arguments. I've also created the Tables2and3.py script which runs this program and produces the errors listed in Table2. I'm getting close values for most entries in the table, however none match exactly, a few are 0. and some cases are quite different (E~10 in some cases). I'm marking down all values within a few of the listed value as 0.98, within 1 order of magnitude as 0.8 and others as 0.2.
+07:43:00 - I've now adjusted the Test-ExtendedMomentInversion program so that it takes command line arguments. I've also created the Tables2and3.py script which runs this program and produces the errors listed in Table2. I'm getting close values for most entries in the table, however none match exactly, a few are 0. and some cases are quite different (E~10 in some cases). I'm marking down all values within a few of the listed value as 0.98, within 1 order of magnitude as 0.8 and others as 0.2. -EDIT: I've now adjusted these new values to be in line with the new rubric.
 
-F1 a(1+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
-F2 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F3 a(0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
+F2 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F3 (0) a(0+0+0+0) c(0+0+0) d(1+1+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
 T3 4*0
 T8 15:0
 T9 8:0
-[72.0(13.4%)]@13:47:00
+[27(2.7%)]@13:47:00
 
 07:54:00 - Table 3's caption is confusingly worded.
 
-08:51:50 - I've now produced a version of Table3. Generally, I'm getting 1-2 orders of magnitude smaller errors than what they're reporting. The general statement of the graph is still there though, Namely cases 1,2 have very small errors, while cases 3 and for have much larger errors. I'll say this is 70% reproduced.
+08:51:50 - I've now produced a version of Table3. Generally, I'm getting 1-2 orders of magnitude smaller errors than what they're reporting. The general statement of the graph is still there though, Namely cases 1,2 have very small errors, while cases 3 and for have much larger errors. I'll say this is 70% reproduced. -EDIT: Scores have been adjusted according to the new rubric.
 
-F1 a(1+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
-F2 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F3 a(0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+0+0+0+0+0) b(0+0+0+0+0+0) c(0+0+0+0+0+0) d(0+0+0+0+0+0)
+F2 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F3 (0) a(0+0+0+0) c(0+0+0) d(1+1+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[80.4(15.0%)]@15:05:00
+[29(2.9%)]@15:05:00
 
-10:13:13 - I've now completed Figure 1. The script Tables2and3andFigure1.py produce it. Each line is exactly what is shown in the paper. Thus I'm giving it full marks.
+10:13:13 - I've now completed Figure 1. The script Tables2and3andFigure1.py produce it. Each line is exactly what is shown in the paper. Thus I'm giving it full marks. -EDIT: scores adjusted for new rubric.
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F3 a(0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F3 (0) a(0+0+0+0) c(0+0+0) d(1+1+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[103.4(19.3%)]@16:27:00
+[75(7.5%)]@16:27:00
 
 10:44:00 - For Figures 2, 4, etc.. There is a 'rigorous' or 'analytical' solution which is plotted along with the numerical solutions. The article refers to another article which calculates these solutions 'Vanni(2000)'. Citation here:
 
@@ -258,140 +258,141 @@ Additionally, the article says they essentially digitized the plots from that ar
 
 11:13:00 - A careful reading of the Vanni paper leaves me thinking that the authors may have made a mistake. Case 5 in the article seems like it should match with Case 1 from the Vanni paper, however, the initial moments are all wrong. n_1 = 1. while n_k = 0 for k >= 2. This is a contrast to the paper which has M_k=1 for all k. Additionally, In case 9, the aggregation kernel has a cutoff at xi = 5**1/3. No aggregation kernel in the listed Vanni cases seems to have a similar cutoff. In order to deal with this, I'm going to digitize their analytic graph and use that digitization to plot the analytic curve.
 
-11:46:00 - Extracted analytic curve for Case 5, got analytic curves for the 4 sub plots of Figure 2.
+11:46:00 - Extracted analytic curve for Case 5, got analytic curves for the 4 sub plots of Figure 2. -EDIT: Scores adjusted for new rubric
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(1+0+0) b(1+0+0) c(1+0+0) d(1+0+0)
-F3 a(0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (2) a(0+0) b(0+0) c(0+0) d(0+0)
+F3 (0) a(0+0+0+0) c(0+0+0) d(1+1+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[107.4(20.0%)]@18:00:00
+[77(7.7%)]@18:00:00
 
 15:33:00 - After exhausting all my ideas, I've started a new github thread to ask reproducibility questions for OpenQBMM.
 15:36:00 - The authors got back to me, Apparently Figure 2 shows the logNormal reconstruction of the analytic equation directly from the analytic moments extracted from that data. One thing I don't yet understand is why the size variable xi or i doesn't go to 0, and how they extract the moments from the analytic data because of this. Finally, they mention that the summation terms need to be divided by M0 which I don't remember seeing anywhere.
-17:03:00 - Following their instructions, I've extracted moments from the analytic distributions as listed, then I inverted those moments to get the weights/absicca for the nodes. This has produced a figure which looks nearly exactly like what is currently published. I'm currently working on adding the gammaEQMOM lines as well, however at this stage I can say that 4 more lines are added.
+17:03:00 - Following their instructions, I've extracted moments from the analytic distributions as listed, then I inverted those moments to get the weights/absicca for the nodes. This has produced a figure which looks nearly exactly like what is currently published. I'm currently working on adding the gammaEQMOM lines as well, however at this stage I can say that 4 more lines are added. -EDIT: Updated for new rubric.
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(1+1+0) b(1+1+0) c(1+1+0) d(1+1+0)
-F3 a(0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (2) a(2+0) b(2+0) c(2+0) d(2+0)
+F3 (0) a(0+0+0+0) c(0+0+0) d(1+1+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[111.4(20.8%)]@23:17:00
+[85(8.5%)]@23:17:00
 
-17:44:00 - After some finagling, I've Gotten the GammaEQMOM lines as well.
+17:44:00 - After some finagling, I've Gotten the GammaEQMOM lines as well. -EDIT: Scores changed to reflect new rubric. -EDIT: scores adjusted for new rubric.
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F3 a(0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F3 (0) a(0+0+0+0) c(0+0+0) d(1+1+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[115.4(21.5%)]@23:31:00
+[93(9.3%)]@23:31:00
 
-18:33:00 - Completed a basic reproduction of Figure 3a. The EQMOM lines are a bit shifted from those in the paper. I'll rate them as 0.6 for now. I've also discovered that I counted the number of assets wrong. for figures 3, 5, 7, 9, and 11. I'm now refactoring the earlier estimates.
+18:33:00 - Completed a basic reproduction of Figure 3a. The EQMOM lines are a bit shifted from those in the paper. I'll rate them as 0.6 for now. I've also discovered that I counted the number of assets wrong. for figures 3, 5, 7, 9, and 11. I'm now refactoring the earlier estimates. -EDIT: scores changed to reflect new rubric. 0.6-> 1 1->2
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F3 a(1+0.6+0.6+0.6+0.6) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F3 (2) a(1+1+1+1) c(0+0+0) d(1+1+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[118.8(22.2%)]@24:47:00
+[99(9.9%)]@24:47:00
 
-19:37:00 - Retrieved the d43 data from OpenQBMM for Vanni 2000. Also completed part of plotting for Figure 3d. Upgrading the analytic curve to 1 and the lognormal points to 0.5. I need to adjust the sampling rate for case5N3. I'm using Datathief to find out what that rate should be.
+19:37:00 - Retrieved the d43 data from OpenQBMM for Vanni 2000. Also completed part of plotting for Figure 3d. Upgrading the analytic curve to 1 and the lognormal points to 0.5. I need to adjust the sampling rate for case5N3. I'm using Datathief to find out what that rate should be. -EDIT: scores changed to reflect new rubric. 1->2 0.5->1
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F3 a(1+0.6+0.6+0.6+0.6) b(0+0) c(0+0+0) d(1+0.5+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F3 (2) a(1+1+1+1) c(0+0+0) d(2+1+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[120.0(22.4%)]@25:01:00
+[100(10.0%)]@25:01:00
 
 19:41:00 - There are 16 points between t = 0 and 3. This makes dt = 0.1875. Let's split the difference and say there are 1000 samples between t = 0 and 200.
-20:11:02 - I settled on simulation output every 0.2s for 1000 samples. While not exactly reproduced because we don't know the exact positions of each green dot, I'm going to say it's 100% reproduced, so the green dots get upgraded to 1.
+20:11:02 - I settled on simulation output every 0.2s for 1000 samples. While not exactly reproduced because we don't know the exact positions of each green dot, I'm going to say it's 100% reproduced, so the green dots get upgraded to 1. -EDIT: Scores adjusted for new rubric.
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F3 a(1+0.6+0.6+0.6+0.6) b(0+0) c(0+0+0) d(1+1+0)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F3 (2) a(1+1+1+1) c(0+0+0) d(2+2+0)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[120.5(22.5%)]@25:25:00
+[101(10.1%)]@25:25:00
 
 20:24:00 - Asked another github question because I'm still missing information I need to complete the figure, i.e. the rigorous solution for M_0.
 20:24:00 - They got back to me, It turns out that the rigorous solution information for all of the examples is coming from the article Marchisio et al. 2003. I looked through the primary article, and Marchisio et al 2003 is cited, but not until later in the article after the comparisons to the exact values were taking place. I did not read past the sections I was replicating since I had not completed the replication yet. This is also the origin of the QMOM nodes mentioned in several figures. I will use the datathief to extract the rigorous plot information and store it as .dat files. The authors also agreed that the discrepencies I'm getting for Figure 3a are down to the integration range. It seems that the difference in integrating from [0,inf) as OpenQBMM does, and [1,inf) as their MATLAB code does will likely be the source of the issues.
@@ -413,96 +414,96 @@ T9 8:0
 22:13:00 - Completed extracting the data into csv files using the WebPlotDigitizer desktop Linux application.
 22:23:00 - extracted data has been named appropriately. It should be noted that the .csv file names mention CaseX for various X. These case numbers refer to the cases in the current article and not the Marchisio article.
 23:25:00 - I've discovered now that the resulting reconstructed nodes are highly sensitive to the exact data passed. Even if you tweak the 'analytic' curve slightly with slightly different data extraction can case the weight and abscissa of the nodes to vary by an appreciable amount. I've added analytic curves extracted from the Vanni2000 paper, Marchisio2003 paper, and the current paper. This can serve as a comparison demonstration.
-23:49:00 - I've now loaded the QMOM N=3 data into Figure 3. I can upgrade 3d to 1.
+23:49:00 - I've now loaded the QMOM N=3 data into Figure 3. I can upgrade 3d to 1. -EDIT: Scores adjusted for new rubric.
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F3 a(1+0.6+0.6+0.6+0.6) b(0+0) c(0+0+0) d(1+1+1)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F3 (2) a(1+1+1+1) c(0+0+0) d(2+2+2)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[121.5(22.7%)]@29:39:00
+[103(10.3%)]@29:39:00
 
-24:00:00 - I've now completed Figure 3b and 3c as well. Each component of the figures matches as well as can be expected. I'll rate those components 1 each.
+24:00:00 - I've now completed Figure 3b and 3c as well. Each component of the figures matches as well as can be expected. I'll rate those components 1 each. -EDIT: Scores adjusted for new rubric.
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F3 a(1+0.6+0.6+0.6+0.6) b(1+1) c(1+1+1) d(1+1+1)
-F4 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(0+0+0) b(0+0+0) c(0+0+0) d(0+0+0)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F3 (2) a(1+1+1+1) c(2+2+2) d(2+2+2)
+F4 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (0) a(0+0) b(0+0) c(0+0) d(0+0)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[126.5(23.6%)]@30:14:00
+[109(10.9%)]@30:14:00
 
 24:11:00 - I'm now going to try and transform the Figure 3 script into a generalized script for each of the cases.
 24:34:00 - I've run into an issue with an OverflowError in Python while calculating the Gamma function of ~170 for one of the cases.
-24:43:00 - The OverflowError is solved by using the loggamma function from scipy to help calculate the log of the loggamma kernel, then exponentiating it. I've now replicated or neraly replicated Figures 4, 6, 8, and 10. in 10d, what I'm getting is quite different from the authors. This seems to be a mistake on the authors part because 10d looks nearly identical to 10c. It looks like 10c only has 3 nodes when its supposed to have 4. I'll rate the LnEQMOM and GammaEQMOM lines in 10d as 0.6 rather than 1.
+24:43:00 - The OverflowError is solved by using the loggamma function from scipy to help calculate the log of the loggamma kernel, then exponentiating it. I've now replicated or neraly replicated Figures 4, 6, 8, and 10. in 10d, what I'm getting is quite different from the authors. This seems to be a mistake on the authors part because 10d looks nearly identical to 10c. It looks like 10c only has 3 nodes when its supposed to have 4. I'll rate the LnEQMOM and GammaEQMOM lines in 10d as 0.6 rather than 1. -EDIT: Scores adjusted for new rubric.
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F3 a(1+0.6+0.6+0.6+0.6) b(1+1) c(1+1+1) d(1+1+1)
-F4 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F5 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F6 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F7 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F8 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F9 a(0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F10 a(1+1+1) b(1+1+1) c(1+1+1) d(1+0.6+0.6)
-F11 a(0+0+0+0+0+0) b(0+0) c(0+0+0) d(0.2+0.1+0)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F3 (2) a(1+1+1+1) c(2+2+2) d(2+2+2)
+F4 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F5 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F6 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F7 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F8 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F9 (0) a(0+0+0) c(0+0+0) d(1+1+0)
+F10 (2) a(2+2) b(2+2) c(2+2) d(1+1)
+F11 (0) a(0+0+0+0+0) c(0+0+0) d(1+1+0)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[173.7(32.4%)]@30:57:00
+[179(17.9%)]@30:57:00
 
 24:56:00 - I'm now working on making a similar script to produce the odd figures from 3 to 11.
-26:28:00 - I've completed the script for making the case comparison plots i.e. the odd figures from 3 to 11. Most look nearly identical to those figures published. In a few cases, the number of points shown for a given method is different. When this happens, those points sometimes are in different places. Given that I got my data from Marchisio for these points, I'm going to rate these cases between 0.8 and 1 depending on how well my figure matches the article. For nearly all the Figure a's, the resulting EQMOM reconstruction is shifted like in the even figures. In these cases, I will rate the associated lines as 0.6.
+26:28:00 - I've completed the script for making the case comparison plots i.e. the odd figures from 3 to 11. Most look nearly identical to those figures published. In a few cases, the number of points shown for a given method is different. When this happens, those points sometimes are in different places. Given that I got my data from Marchisio for these points, I'm going to rate these cases between 0.8 and 1 depending on how well my figure matches the article. For nearly all the Figure a's, the resulting EQMOM reconstruction is shifted like in the even figures. In these cases, I will rate the associated lines as 0.6. -EDIT: Scores adjusted for new rubric.
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F3 a(1+0.6+0.6+0.6+0.6) b(1+1) c(1+1+1) d(1+1+1)
-F4 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F5 a(1+1+1+1) b(1+1) c(1+1+1) d(1+1+1)
-F6 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F7 a(1+0.9+0.9+0.9) b(1+1) c(1+1+1) d(1+0.6+0.8)
-F8 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F9 a(1+1+1+1) b(1+1) c(1+1+1) d(1+1+1)
-F10 a(1+1+1) b(1+1+1) c(1+1+1) d(1+0.6+0.6)
-F11 a(1+0.9+0.9+0.9+0.9+0.9) b(1+1) c(1+1+1) d(1+1+1)
-F12 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
-F13 a(0+0+0) b(0+0+0+0) c(0+0+0+0+0) d(0+0+0+0+0+0+0) e(0+0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0+0)
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F3 (2) a(1+1+1+1) c(2+2+2) d(2+2+2)
+F4 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F5 (2) a(2+2+2) c(2+2+2) d(2+2+2)
+F6 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F7 (2) a(2+2+2) c(2+2+2) d(2+1+2)
+F8 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F9 (2) a(2+2+2) c(2+2+2) d(2+2+2)
+F10 (2) a(2+2) b(2+2) c(2+2) d(1+1)
+F11 (2) a(2+2+2+2+2) c(2+2+2) d(2+2+2)
+F12 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (0) a(0+0) b(0+0+0) c(0+0+0+0) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
 F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[221.1(41.3%)]@32:42:00
+[256(25.5%)]@32:42:00
 
 26:50:00 - I'm now working on Figures 12 and 13. These only require moment inversion, so they should be fairly easy.
 27:13:00 - There's a new problem, the coalescence and condensation ndfs are defined with time dependence. It however is not mentioned what time is used for plots 12 and 13. I will try to guess it, but I may have to look at subordinate articles or ask.
@@ -516,27 +517,27 @@ T9 8:0
 
 +4 hours - Over the weekend, I studies how gaussian quadrature works. This was in an attempt to fix Figures 12-13, and to understand better how Figure 14 works.
 
-+3 hours - I implemented the new gaussian quadrature algorithm, and finished implementing the specified moment inversion algorithm, however this has not resulted in successful inversions of the distributions in Figures 12-13. I have officially exhausted my time on this article. If the authors give me access to the MATLAB code, I will attempt to make better representations of these figures.
++3 hours - I implemented the new gaussian quadrature algorithm, and finished implementing the specified moment inversion algorithm, however this has not resulted in successful inversions of the distributions in Figures 12-13. I have officially exhausted my time on this article. If the authors give me access to the MATLAB code, I will attempt to make better representations of these figures. -EDIT: Scores adjusted for new rubric.
 
-F1 a(1+1+1+1+1+1) b(1+1+1+1+1+1) c(1+1+1+1+1+1) d(1+1+1+1+1+1)
-F2 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F3 a(1+0.6+0.6+0.6+0.6) b(1+1) c(1+1+1) d(1+1+1)
-F4 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F5 a(1+1+1+1) b(1+1) c(1+1+1) d(1+1+1)
-F6 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F7 a(1+0.9+0.9+0.9) b(1+1) c(1+1+1) d(1+0.6+0.8)
-F8 a(1+1+1) b(1+1+1) c(1+1+1) d(1+1+1)
-F9 a(1+1+1+1) b(1+1) c(1+1+1) d(1+1+1)
-F10 a(1+1+1) b(1+1+1) c(1+1+1) d(1+0.6+0.6)
-F11 a(1+0.9+0.9+0.9+0.9+0.9) b(1+1) c(1+1+1) d(1+1+1)
-F12 a(1+0.9+0.9) b(1+0.9+0.9+1) c(1+0.9+0.9+0.9+1) d(1+0.9+0.9+0.9+0+0) e(1+0+0+0+0+0+0) f(1+0+0+0+0+0+0+0)
-F13 a(1+0.6+0.6) b(1+0.6+0.6+0.6) c(1+0.6+0.6+0.4+0.4) d(1+0+0+0+0+0) e(1+0+0+0+0+0+0) f(1+0+0+0+0+0+0+0)
-F14 a((0.1+0)+2*(0+0)) b((0.1+0)+2*(0+0)) c((0.1+0)+2*(0+0)) d((0.1+0)+2*(0+0)) e((0.1+0)+2*(0+0))
-T2 1:(20*0.98+1*0.8)+2:(13*0.98+1*0.8+7*0.2)+3:(17*0.98+4*0.8)+4:(13*0.98+8*0.2)
-T3 4*(3*0.7)
+F1 a(2+2+2+2+2+2) b(2+2+2+2+2+2) c(2+2+2+2+2+2) d(2+2+2+2+2+2)
+F2 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F3 (2) a(1+1+1+1) c(2+2+2) d(2+2+2)
+F4 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F5 (2) a(2+2+2) c(2+2+2) d(2+2+2)
+F6 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F7 (2) a(2+2+2) c(2+2+2) d(2+1+2)
+F8 (2) a(2+2) b(2+2) c(2+2) d(2+2)
+F9 (2) a(2+2+2) c(2+2+2) d(2+2+2)
+F10 (2) a(2+2) b(2+2) c(2+2) d(1+1)
+F11 (2) a(2+2+2+2+2) c(2+2+2) d(2+2+2)
+F12 (2) a(2+2) b(2+2+2) c(2+2+2+2) d(2+2+2+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F13 (2) a(1+1) b(1+1+1) c(1+1+1+1) d(0+0+0+0+0+0) e(0+0+0+0+0+0+0) f(0+0+0+0+0+0+0+0)
+F14 a(3*(0+0)) b(3*(0+0)) c(3*(0+0)) d(3*(0+0)) e(3*(0+0))
+T2 1:(1*4+0*17) 2:(2*1+1*2+0*18) 3:(2*2+1*3+0*16) 4:(0*21)
+T3 1:(0*3)+2:(1*2+0*1)+3:(0*3)+4:(0*3)
 T8 15:0
 T9 8:0
-[249.6(46.6%)]@44:20:00
+[293(29.2%)]@44:20:00
 
 Reset timer!
 00:00:00: Adding LICENSE Info, and travis building.
