@@ -12,8 +12,8 @@ RUN \
   apt-get install -y python \
   && apt-get install -y python-tk \
   && apt-get install -y python3-pip \
-  && pip3 install matplotlib \
-  && pip3 install scipy
+  && pip3 install matplotlib==3.0 \
+  && pip3 install scipy==1.4
 
 # Install OpenFOAM v6
 RUN \
