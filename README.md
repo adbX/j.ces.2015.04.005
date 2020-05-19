@@ -44,7 +44,7 @@ Make sure that OpenFOAM is installed, and that the environment file `${OpenFOAM_
 
 #### Run everything script.
 
-Run the `run.sh` script to build, run all necessary computational experiments, and produce all of the visualizations.
+Run the `run_all.sh` script to build, run all necessary computational experiments, and produce all of the visualizations.
 
 Please be aware of the computational requirements you can read here [computational requirements](computational_effort.md).
 
