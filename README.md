@@ -1,5 +1,9 @@
 # An extended quadrature-based moment method with log-normal kernel density functions
 
+This is a Reproduction Package as described in the manuscript "Three Empirical Principles for Computational Reproducibility and their Implementation: *The Reproduction Package*" by M. S. Krafczyk, A. Shi, A. Bhaskar, D. Marinov, & V. Stodden.
+
+This Reproduction Package doesn't contain `run.sh`. This is because all experiments complete in a reasonable time-frame. We've just kept the script `run_all.sh`.
+
 ["An extended quadrature-based moment method with log-normal kernel density functions"](https://dx.doi.org/10.1016/j.ces.2015.04.005) details a refinement to the extended quadrature-based moment method by introducing the log-normal kernel density function. We arrived at this article while trying to reproduce results from another [article](https://dx.doi.org/10.1016/j.jcp.2016.08.017). This article cited the use of the OpenQBMM framework which we did not know how to use properly. Exploring the content of the OpenQBMM library revealed references this paper and in order to better understand OpenQBMM we worked to reproduce the results herein.
 
 The quadrature-based moment method (QBMM) is a way to handle the so-called 'population balance equations'. These deal with the evolution of a population of elements which have one or more internal properties which may evolve over time as well. For example, the droplet size in an aerosol. Droplets can merge, split, increase in size or decrease in size each of which contributes a term to the equations of motion for these particle's and their internal variables. It was discovered that transforming the equations of motion to evolve moments of the internal distribution rather than the internal distribution itself provided some performance benefits. This article and in turn the [OpenQBMM](https://github.com/OpenQBMM/OpenQBMM) library is an extension of this method.
