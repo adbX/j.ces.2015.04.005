@@ -89,3 +89,7 @@ We kept track of our progress and issues inside `notes.txt`. We also have a jupy
 ## Acknowledgement of the Authors
 
 We want to acknowledge the authors Alberto Passalacqua and Ehsan Madidi Kandjani for their fine work on this experiment. We succeeded in reproducing most aspects of this paper where we were unable to for many others. Their high quality work and generous communication allowed this to happen.
+
+## Acknowledgement of Grants
+
+This work was partially supported by NSF grants OAC-1839010, and CNS-1646305.
