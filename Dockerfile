@@ -5,13 +5,16 @@ ADD . /app
 
 RUN \
   apt-get update \
-  && apt-get install -y build-essential
+  && apt-get install -y build-essential software-properties-common curl\
+  && add-apt-repository ppa:deadsnakes/ppa \
+  && apt-get update
 
 # Install Python and various packages needed to run the Python scripts
 RUN \
-  apt-get install -y python \
+  apt-get install -y python3.7 \
+  && curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
+  && python3.7 get-pip.py \
   && apt-get install -y python-tk \
-  && apt-get install -y python3-pip \
   && pip3 install matplotlib==3.0 \
   && pip3 install scipy==1.4
 
